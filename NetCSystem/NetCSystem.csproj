@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8DFF431D-68F6-4CAD-A6D9-45BB47A09002}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NetCSystem</RootNamespace>
+    <AssemblyName>NetCSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEchelon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEchelon.Designer.cs">
+      <DependentUpon>AdminEchelon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEquipment.Designer.cs">
+      <DependentUpon>AdminEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOrganization.Designer.cs">
+      <DependentUpon>AdminOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPosition.Designer.cs">
+      <DependentUpon>AdminPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminRanks.Designer.cs">
+      <DependentUpon>AdminRanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEchelon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEchelon.Designer.cs">
+      <DependentUpon>CreateEchelon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEquipment.Designer.cs">
+      <DependentUpon>CreateEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateOrganization.Designer.cs">
+      <DependentUpon>CreateOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePosition.Designer.cs">
+      <DependentUpon>CreatePosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRanks.Designer.cs">
+      <DependentUpon>CreateRanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEchelon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEchelon.Designer.cs">
+      <DependentUpon>ManageEchelon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEquipment.Designer.cs">
+      <DependentUpon>ManageEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageOrganization.Designer.cs">
+      <DependentUpon>ManageOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageRanks.Designer.cs">
+      <DependentUpon>ManageRanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusPosition.Designer.cs">
+      <DependentUpon>StatusPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRegister.Designer.cs">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrganization.Designer.cs">
+      <DependentUpon>ViewOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Year.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Year.Designer.cs">
+      <DependentUpon>Year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YearsValid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YearsValid.Designer.cs">
+      <DependentUpon>YearsValid.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEchelon.resx">
+      <DependentUpon>AdminEchelon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEquipment.resx">
+      <DependentUpon>AdminEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOrganization.resx">
+      <DependentUpon>AdminOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPosition.resx">
+      <DependentUpon>AdminPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminRanks.resx">
+      <DependentUpon>AdminRanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateEchelon.resx">
+      <DependentUpon>CreateEchelon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateEquipment.resx">
+      <DependentUpon>CreateEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateOrganization.resx">
+      <DependentUpon>CreateOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePosition.resx">
+      <DependentUpon>CreatePosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateRanks.resx">
+      <DependentUpon>CreateRanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEchelon.resx">
+      <DependentUpon>ManageEchelon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEquipment.resx">
+      <DependentUpon>ManageEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageOrganization.resx">
+      <DependentUpon>ManageOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageRanks.resx">
+      <DependentUpon>ManageRanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusPosition.resx">
+      <DependentUpon>StatusPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister.resx">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOrganization.resx">
+      <DependentUpon>ViewOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Year.resx">
+      <DependentUpon>Year.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearsValid.resx">
+      <DependentUpon>YearsValid.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SystemDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SystemDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SystemDB.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataHelper\DataHelper.csproj">
+      <Project>{533dd2d9-2197-4ded-b6e1-831c1432d6a6}</Project>
+      <Name>DataHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
