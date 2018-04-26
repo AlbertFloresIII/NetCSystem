@@ -13,11 +13,15 @@ namespace NetCSystem
 {
     public partial class CreatePosition : Form
     {
-        public CreatePosition(int StatusID)
+        public CreatePosition(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
 
-            txtStatus.Text = StatusID.ToString();
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayOrganizationName();
             DisplayRankName();
             DisplayPerEquipmentName();
@@ -35,7 +39,8 @@ namespace NetCSystem
 
         void DisplayOrganizationName()
         {
-            int statusID = Convert.ToInt32(txtStatus.Text);
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+
             myOrganizationName.DataSource = myData.DisplayOrganization(statusID).Tables["OrganizationRecord"];
             cboOrganization.DataSource = myOrganizationName;
             cboOrganization.DisplayMember = "organization_name";
@@ -44,7 +49,8 @@ namespace NetCSystem
 
         void DisplayRankName()
         {
-            myRankName.DataSource = myData.DisplayRank().Tables["RankRecord"];
+            int yearID = Convert.ToInt32(lblYearID.Text);
+            myRankName.DataSource = myData.DisplayRank(yearID).Tables["RankRecord"];
             cboRankRequired.DataSource = myRankName;
             cboRankRequired.DisplayMember = "rank_name";
             cboRankRequired.ValueMember = "rank_id";
@@ -52,7 +58,9 @@ namespace NetCSystem
 
         void DisplayPerEquipmentName()
         {
-            myPerEquipmentName.DataSource = myData.DisplayEquipment().Tables["EquipmentRecord"];
+            int yearID = Convert.ToInt32(lblYearID.Text);
+
+            myPerEquipmentName.DataSource = myData.DisplayEquipment(yearID).Tables["EquipmentRecord"];
             cboPersonnelEquipment.DataSource = myPerEquipmentName;
             cboPersonnelEquipment.DisplayMember = "equipment_name";
             cboPersonnelEquipment.ValueMember = "equipment_id";
@@ -60,7 +68,9 @@ namespace NetCSystem
 
         void DisplayPosEquipmentName()
         {
-            myPosEquipmentName.DataSource = myData.DisplayEquipment().Tables["EquipmentRecord"];
+            int yearID = Convert.ToInt32(lblYearID.Text);
+
+            myPosEquipmentName.DataSource = myData.DisplayEquipment(yearID).Tables["EquipmentRecord"];
             cboPositionEquipment.DataSource = myPosEquipmentName;
             cboPositionEquipment.DisplayMember = "equipment_name";
             cboPositionEquipment.ValueMember = "equipment_id";

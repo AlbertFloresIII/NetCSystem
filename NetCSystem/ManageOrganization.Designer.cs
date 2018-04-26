@@ -45,8 +45,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cboEchelonName = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusID = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblYearID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrganization)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +69,7 @@
             this.StatusID,
             this.YearStart,
             this.YearEnd});
-            this.tblOrganization.Location = new System.Drawing.Point(15, 77);
+            this.tblOrganization.Location = new System.Drawing.Point(13, 111);
             this.tblOrganization.Name = "tblOrganization";
             this.tblOrganization.ReadOnly = true;
             this.tblOrganization.Size = new System.Drawing.Size(760, 290);
@@ -210,32 +216,87 @@
             this.cboEchelonName.Size = new System.Drawing.Size(188, 21);
             this.cboEchelonName.TabIndex = 55;
             // 
-            // label5
+            // lblStatus
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(118, 386);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 22);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Status:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(168, 75);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 56;
             // 
-            // cboStatus
+            // lblStatusID
             // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(187, 387);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(188, 21);
-            this.cboStatus.TabIndex = 55;
-            this.cboStatus.SelectionChangeCommitted += new System.EventHandler(this.cboStatus_SelectionChangeCommitted);
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(168, 62);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 57;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(64, 75);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 58;
+            // 
+            // lblYearID
+            // 
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(64, 62);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 59;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(116, 75);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 60;
+            this.label14.Text = "Status:";
+            // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(116, 62);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 61;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(12, 75);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 62;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 63;
+            this.label8.Text = "Year ID:";
             // 
             // ManageOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.cboStatus);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStatusID);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblYearID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.l);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cboEchelonName);
             this.Controls.Add(this.tblOrganization);
             this.Controls.Add(this.label1);
@@ -244,7 +305,6 @@
             this.Controls.Add(this.btnUpdateEquipment);
             this.Controls.Add(this.txtOrganizationName);
             this.Controls.Add(this.txtOrganizationID);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -276,7 +336,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusID;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblYearID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label label8;
     }
 }

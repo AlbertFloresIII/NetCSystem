@@ -12,28 +12,38 @@ namespace NetCSystem
 {
     public partial class AdminEquipment : Form
     {
-        public AdminEquipment()
+        public AdminEquipment(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            Admin admin = new Admin(lblYearID.Text, lblYear.Text, statusID);
             admin.Show();
             this.Close();
         }
 
         private void btnCreateEquipment_Click(object sender, EventArgs e)
         {
-            CreateEquipment createEquip = new CreateEquipment();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+
+            CreateEquipment createEquip = new CreateEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             createEquip.Show();
             this.Close();
         }
 
         private void btnManageEquipment_Click(object sender, EventArgs e)
         {
-            ManageEquipment manageEquip = new ManageEquipment();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+
+            ManageEquipment manageEquip = new ManageEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             manageEquip.Show();
             this.Close();
         }

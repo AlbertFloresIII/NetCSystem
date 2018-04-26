@@ -7,14 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataHelper;
 
 namespace NetCSystem
 {
     public partial class Admin : Form
     {
-        public Admin()
+        public Admin(string YearID, string Year, int StatusID)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+
+            DisplayStatusName();
+        }
+
+        DataAccess myData = new DataAccess();
+
+        void DisplayStatusName()
+        {
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+
+            if(myData.DisplayStatusName(statusID))
+            {
+                lblStatus.Text = myData.StatusName;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -31,21 +50,24 @@ namespace NetCSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AdminRanks adminRanks = new AdminRanks();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminRanks adminRanks = new AdminRanks(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminRanks.Show();
             this.Close();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            AdminEquipment adminEquip = new AdminEquipment();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminEquipment adminEquip = new AdminEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminEquip.Show();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AdminOrganization adminOrg = new AdminOrganization();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminOrganization adminOrg = new AdminOrganization(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminOrg.Show();
             this.Close();
         }

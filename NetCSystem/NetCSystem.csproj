@@ -126,6 +126,12 @@
     <Compile Include="CreateRanks.Designer.cs">
       <DependentUpon>CreateRanks.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateYear.Designer.cs">
+      <DependentUpon>CreateYear.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,12 +170,6 @@
     <Compile Include="Status.Designer.cs">
       <DependentUpon>Status.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatusPosition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StatusPosition.Designer.cs">
-      <DependentUpon>StatusPosition.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,12 +187,6 @@
     </Compile>
     <Compile Include="Year.Designer.cs">
       <DependentUpon>Year.cs</DependentUpon>
-    </Compile>
-    <Compile Include="YearsValid.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="YearsValid.Designer.cs">
-      <DependentUpon>YearsValid.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
@@ -227,6 +221,9 @@
     <EmbeddedResource Include="CreateRanks.resx">
       <DependentUpon>CreateRanks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateYear.resx">
+      <DependentUpon>CreateYear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,9 +251,6 @@
     <EmbeddedResource Include="Status.resx">
       <DependentUpon>Status.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusPosition.resx">
-      <DependentUpon>StatusPosition.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserRegister.resx">
       <DependentUpon>UserRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,9 +259,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Year.resx">
       <DependentUpon>Year.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="YearsValid.resx">
-      <DependentUpon>YearsValid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -281,15 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SystemDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SystemDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SystemDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

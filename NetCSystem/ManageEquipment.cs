@@ -13,9 +13,15 @@ namespace NetCSystem
 {
     public partial class ManageEquipment : Form
     {
-        public ManageEquipment()
+        public ManageEquipment(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
+
             DisplayEquipment();
         }
 
@@ -24,13 +30,16 @@ namespace NetCSystem
 
         void DisplayEquipment()
         {
-            myEquipmentTable.DataSource = myData.DisplayEquipment().Tables["EquipmentRecord"];
+            int YearID = Convert.ToInt32(lblYearID.Text);
+
+            myEquipmentTable.DataSource = myData.DisplayEquipment(YearID).Tables["EquipmentRecord"];
             tblEquipment.DataSource = myEquipmentTable;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminEquipment adminEquip = new AdminEquipment();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminEquipment adminEquip = new AdminEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminEquip.Show();
             this.Close();
         }

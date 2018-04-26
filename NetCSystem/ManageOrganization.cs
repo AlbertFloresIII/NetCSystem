@@ -13,12 +13,17 @@ namespace NetCSystem
 {
     public partial class ManageOrganization : Form
     {
-        public ManageOrganization()
+        public ManageOrganization(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayOrganization();
             DisplayEchelon();
-            DisplayStatus();
         }
 
         DataAccess myData = new DataAccess();
@@ -28,7 +33,10 @@ namespace NetCSystem
 
         void DisplayOrganization()
         {
-            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName().Tables["OrganizationRecord"];
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            int yearID = Convert.ToInt32(lblYearID.Text);
+
+            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"];
             tblOrganization.DataSource = myOrganizationTable;
         }
 
@@ -40,17 +48,10 @@ namespace NetCSystem
             cboEchelonName.ValueMember = "echelon_ID";
         }
 
-        void DisplayStatus()
-        {
-            myStatus.DataSource = myData.DisplayStatus().Tables["StatusRecord"];
-            cboStatus.DataSource = myStatus;
-            cboStatus.DisplayMember = "status_desc";
-            cboStatus.ValueMember = "status_id";
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminOrganization adminOrg = new AdminOrganization();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminOrganization adminOrg = new AdminOrganization(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminOrg.Show();
             this.Close();
         }
@@ -114,17 +115,6 @@ namespace NetCSystem
                 MessageBox.Show("Deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
             }
-        }
-
-        private void cboStatus_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            this.tblOrganization.DataSource = null;
-            this.tblOrganization.Rows.Clear();
-
-            int statusID = (int)cboStatus.SelectedValue;
-
-            myOrganizationTable.DataSource = myData.DisplayOrganizationAccdgToStatus(statusID).Tables["StatusRecord"];
-            tblOrganization.DataSource = myOrganizationTable;
         }
     }
 }

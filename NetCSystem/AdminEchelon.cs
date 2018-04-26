@@ -19,9 +19,9 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
+            /*Admin admin = new Admin();
             admin.Show();
-            this.Close();
+            this.Close();*/
         }
 
         private void btnCreateEchelon_Click(object sender, EventArgs e)

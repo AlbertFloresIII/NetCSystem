@@ -36,9 +36,6 @@
             this.txtOrgName = new System.Windows.Forms.TextBox();
             this.txtOrgID = new System.Windows.Forms.TextBox();
             this.tblOrganization = new System.Windows.Forms.DataGridView();
-            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EchelonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnView = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,6 +56,20 @@
             this.PosEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PosEquipQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResult = new System.Windows.Forms.RichTextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusID = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblYearID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EchelonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrganization)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -145,34 +156,16 @@
             this.tblOrganization.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrganizationID,
             this.OrganizationName,
-            this.EchelonName});
+            this.EchelonName,
+            this.Status,
+            this.YearStart,
+            this.YearEnd});
             this.tblOrganization.Location = new System.Drawing.Point(6, 19);
             this.tblOrganization.Name = "tblOrganization";
             this.tblOrganization.ReadOnly = true;
             this.tblOrganization.Size = new System.Drawing.Size(325, 305);
             this.tblOrganization.TabIndex = 0;
             this.tblOrganization.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblOrganization_CellClick);
-            // 
-            // OrganizationID
-            // 
-            this.OrganizationID.DataPropertyName = "organization_id";
-            this.OrganizationID.HeaderText = "Organization ID";
-            this.OrganizationID.Name = "OrganizationID";
-            this.OrganizationID.ReadOnly = true;
-            // 
-            // OrganizationName
-            // 
-            this.OrganizationName.DataPropertyName = "organization_name";
-            this.OrganizationName.HeaderText = "Organization Name";
-            this.OrganizationName.Name = "OrganizationName";
-            this.OrganizationName.ReadOnly = true;
-            // 
-            // EchelonName
-            // 
-            this.EchelonName.DataPropertyName = "echelon_name";
-            this.EchelonName.HeaderText = "Echelon";
-            this.EchelonName.Name = "EchelonName";
-            this.EchelonName.ReadOnly = true;
             // 
             // btnView
             // 
@@ -262,7 +255,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tblPerEquipment);
-            this.groupBox4.Location = new System.Drawing.Point(740, 12);
+            this.groupBox4.Location = new System.Drawing.Point(740, 95);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(259, 168);
             this.groupBox4.TabIndex = 3;
@@ -309,7 +302,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.tblPosEquipment);
-            this.groupBox5.Location = new System.Drawing.Point(740, 198);
+            this.groupBox5.Location = new System.Drawing.Point(740, 269);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(259, 168);
             this.groupBox5.TabIndex = 3;
@@ -361,11 +354,129 @@
             this.txtResult.TabIndex = 4;
             this.txtResult.Text = "";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(947, 37);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 52;
+            // 
+            // lblStatusID
+            // 
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(947, 24);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 53;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(843, 37);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 54;
+            // 
+            // lblYearID
+            // 
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(843, 24);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 55;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(895, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 56;
+            this.label14.Text = "Status:";
+            // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(895, 24);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 57;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(791, 37);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 58;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(791, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Year ID:";
+            // 
+            // OrganizationID
+            // 
+            this.OrganizationID.DataPropertyName = "organization_id";
+            this.OrganizationID.HeaderText = "Organization ID";
+            this.OrganizationID.Name = "OrganizationID";
+            this.OrganizationID.ReadOnly = true;
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.DataPropertyName = "organization_name";
+            this.OrganizationName.HeaderText = "Organization Name";
+            this.OrganizationName.Name = "OrganizationName";
+            this.OrganizationName.ReadOnly = true;
+            // 
+            // EchelonName
+            // 
+            this.EchelonName.DataPropertyName = "echelon_name";
+            this.EchelonName.HeaderText = "Echelon";
+            this.EchelonName.Name = "EchelonName";
+            this.EchelonName.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status_desc";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // YearStart
+            // 
+            this.YearStart.DataPropertyName = "year_start";
+            this.YearStart.HeaderText = "Year Start";
+            this.YearStart.Name = "YearStart";
+            this.YearStart.ReadOnly = true;
+            // 
+            // YearEnd
+            // 
+            this.YearEnd.DataPropertyName = "year_end";
+            this.YearEnd.HeaderText = "Year End";
+            this.YearEnd.Name = "YearEnd";
+            this.YearEnd.ReadOnly = true;
+            // 
             // ViewOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 461);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStatusID);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblYearID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.l);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -386,6 +497,7 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblPosEquipment)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -401,9 +513,6 @@
         private System.Windows.Forms.TextBox txtOrgID;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EchelonName;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView tblPositions;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -422,5 +531,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PosPosEquipID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipQty;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusID;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblYearID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EchelonName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
     }
 }

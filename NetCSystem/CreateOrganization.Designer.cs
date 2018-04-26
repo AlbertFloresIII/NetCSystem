@@ -35,12 +35,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboOrgEchelon = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtYearStart = new System.Windows.Forms.TextBox();
-            this.txtYearEnd = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusID = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblYearID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -112,79 +114,92 @@
             this.cboOrgEchelon.Size = new System.Drawing.Size(242, 21);
             this.cboOrgEchelon.TabIndex = 30;
             // 
-            // label2
+            // lblStatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(150, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 28);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "STATUS ID:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(204, 150);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 52;
             // 
-            // txtStatus
+            // lblStatusID
             // 
-            this.txtStatus.Enabled = false;
-            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtStatus.Location = new System.Drawing.Point(273, 130);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(242, 31);
-            this.txtStatus.TabIndex = 26;
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(204, 137);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 53;
             // 
-            // label5
+            // lblYear
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(187, 169);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 28);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "YEARS:";
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(100, 150);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 54;
             // 
-            // txtYearStart
+            // lblYearID
             // 
-            this.txtYearStart.Enabled = false;
-            this.txtYearStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtYearStart.Location = new System.Drawing.Point(273, 166);
-            this.txtYearStart.Name = "txtYearStart";
-            this.txtYearStart.Size = new System.Drawing.Size(63, 31);
-            this.txtYearStart.TabIndex = 26;
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(100, 137);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 55;
             // 
-            // txtYearEnd
+            // label14
             // 
-            this.txtYearEnd.Enabled = false;
-            this.txtYearEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtYearEnd.Location = new System.Drawing.Point(364, 166);
-            this.txtYearEnd.Name = "txtYearEnd";
-            this.txtYearEnd.Size = new System.Drawing.Size(63, 31);
-            this.txtYearEnd.TabIndex = 26;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(152, 150);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 56;
+            this.label14.Text = "Status:";
             // 
-            // label6
+            // l
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(338, 166);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 28);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "-";
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(152, 137);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 57;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(48, 150);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 58;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(48, 137);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Year ID:";
             // 
             // CreateOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStatusID);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblYearID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.l);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cboOrgEchelon);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.txtYearEnd);
-            this.Controls.Add(this.txtYearStart);
-            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.txtNewOrgName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "CreateOrganization";
@@ -204,11 +219,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboOrgEchelon;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtYearStart;
-        private System.Windows.Forms.TextBox txtYearEnd;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusID;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblYearID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label label8;
     }
 }

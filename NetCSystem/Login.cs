@@ -38,8 +38,8 @@ namespace NetCSystem
             {
                 if (myData.LocateAccount(txtUsername.Text, txtPassword.Text))
                 {
-                    Admin admin = new Admin();
-                    admin.Show();
+                    Year year = new Year();
+                    year.Show();
                     this.Hide();
                 }
 

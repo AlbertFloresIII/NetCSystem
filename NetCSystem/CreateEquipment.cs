@@ -13,16 +13,22 @@ namespace NetCSystem
 {
     public partial class CreateEquipment : Form
     {
-        public CreateEquipment()
+        public CreateEquipment(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
         }
 
         DataAccess myData = new DataAccess();
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminEquipment adminEquip = new AdminEquipment();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminEquipment adminEquip = new AdminEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminEquip.Show();
             this.Close();
         }
@@ -45,12 +51,14 @@ namespace NetCSystem
             else
             {
                 decimal EquipmentCost = Convert.ToDecimal(txtNewEquipmentCost.Text);
+                int YearID = Convert.ToInt32(lblYearID.Text);
+                int statusID = Convert.ToInt32(lblStatusID.Text);
 
-                myData.AddEquipment(txtNewEquipmentName.Text, EquipmentCost);
+                myData.AddEquipment(txtNewEquipmentName.Text, EquipmentCost,YearID);
 
                 MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                AdminEquipment adminEquip = new AdminEquipment();
+                AdminEquipment adminEquip = new AdminEquipment(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
                 adminEquip.Show();
                 this.Close();
             }

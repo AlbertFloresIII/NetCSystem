@@ -36,6 +36,14 @@
             this.btnViewEquipment = new System.Windows.Forms.Button();
             this.btnManageOrganization = new System.Windows.Forms.Button();
             this.btnCreateOrganization = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusID = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblYearID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -116,11 +124,87 @@
             this.btnCreateOrganization.UseVisualStyleBackColor = true;
             this.btnCreateOrganization.Click += new System.EventHandler(this.btnCreateOrganization_Click);
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(167, 120);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 44;
+            // 
+            // lblStatusID
+            // 
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(167, 107);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 45;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(63, 120);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 46;
+            // 
+            // lblYearID
+            // 
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(63, 107);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 47;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(115, 120);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 48;
+            this.label14.Text = "Status:";
+            // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(115, 107);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 49;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(11, 120);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 50;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 107);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 51;
+            this.label8.Text = "Year ID:";
+            // 
             // AdminOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStatusID);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblYearID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.l);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -147,5 +231,13 @@
         private System.Windows.Forms.Button btnViewEquipment;
         private System.Windows.Forms.Button btnManageOrganization;
         private System.Windows.Forms.Button btnCreateOrganization;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusID;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblYearID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label label8;
     }
 }

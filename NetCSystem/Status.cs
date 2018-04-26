@@ -12,17 +12,20 @@ namespace NetCSystem
 {
     public partial class Status : Form
     {
-        public Status()
+        public Status(int YearID, string Year)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID.ToString();
+            lblYearName.Text = Year;
         }
 
         private int statusID;
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
-            admin.Show();
+            Year year = new Year();
+            year.Show();
             this.Close();
         }
 
@@ -30,8 +33,8 @@ namespace NetCSystem
         {
             statusID = 1;
 
-            YearsValid years = new YearsValid(statusID);
-            years.Show();
+            Admin admin = new Admin(lblYearID.Text, lblYearName.Text, statusID);
+            admin.Show();
             this.Close();
         }
 
@@ -39,8 +42,8 @@ namespace NetCSystem
         {
             statusID = 2;
 
-            YearsValid years = new YearsValid(statusID);
-            years.Show();
+            Admin admin = new Admin(lblYearID.Text, lblYearName.Text, statusID);
+            admin.Show();
             this.Close();
         }
 
@@ -48,8 +51,8 @@ namespace NetCSystem
         {
             statusID = 3;
 
-            YearsValid years = new YearsValid(statusID);
-            years.Show();
+            Admin admin = new Admin(lblYearID.Text, lblYearName.Text, statusID);
+            admin.Show();
             this.Close();
         }
     }

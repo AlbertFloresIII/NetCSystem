@@ -13,13 +13,16 @@ namespace NetCSystem
 {
     public partial class CreateOrganization : Form
     {
-        public CreateOrganization(int StatusID, int YearStart, int YearEnd)
+        public CreateOrganization(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayEchelonName();
-            txtStatus.Text = StatusID.ToString();
-            txtYearStart.Text = YearStart.ToString();
-            txtYearEnd.Text = YearEnd.ToString();
         }
 
         DataAccess myData = new DataAccess();
@@ -35,9 +38,9 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            int StatusID = Convert.ToInt32(txtStatus.Text);
-            YearsValid years = new YearsValid(StatusID);
-            years.Show();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminOrganization adminOrg = new AdminOrganization(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
+            adminOrg.Show();
             this.Close();
         }
 
@@ -51,16 +54,14 @@ namespace NetCSystem
             else
             {
                 int OrganizationEchelon = (int) cboOrgEchelon.SelectedValue;
-                int StatusID = Convert.ToInt32(txtStatus.Text);
-                int YearStart = Convert.ToInt32(txtYearStart.Text);
+                int StatusID = Convert.ToInt32(lblStatusID.Text);
+                int YearID = Convert.ToInt32(lblYearID.Text);
 
-                int YearEnd = Convert.ToInt32(txtYearEnd.Text);
-
-                myData.AddOrganization(txtNewOrgName.Text, OrganizationEchelon, StatusID, YearStart, YearEnd);
+                myData.AddOrganization(txtNewOrgName.Text, OrganizationEchelon, StatusID, YearID);
 
                 MessageBox.Show("Organization Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Admin admin = new Admin();
+                Admin admin = new Admin(lblYearID.Text, lblYear.Text, StatusID);
                 admin.Show();
                 this.Close();
             }

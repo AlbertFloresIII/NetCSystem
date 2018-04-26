@@ -19,16 +19,13 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
+            /*Admin admin = new Admin();
             admin.Show();
-            this.Close();
+            this.Close();*/
         }
 
         private void btnCreatePositions_Click(object sender, EventArgs e)
         {
-            StatusPosition statusPos = new StatusPosition();
-            statusPos.Show();
-            this.Close();
         }
     }
 }

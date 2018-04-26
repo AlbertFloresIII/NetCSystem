@@ -13,13 +13,19 @@ namespace NetCSystem
 {
     public partial class ViewOrganization : Form
     {
-        public ViewOrganization()
+        public ViewOrganization(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
             var topLeftHeaderCell = tblOrganization.TopLeftHeaderCell;
             var topLeftHeaderCell1 = tblPositions.TopLeftHeaderCell;
             var topLeftHeaderCell3 = tblPerEquipment.TopLeftHeaderCell;
             var topLeftHeaderCell4 = tblPosEquipment.TopLeftHeaderCell;
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayOrganization();
         }
 
@@ -28,13 +34,16 @@ namespace NetCSystem
 
         void DisplayOrganization()
         {
-            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName().Tables["OrganizationRecord"];
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            int yearID = Convert.ToInt32(lblYearID.Text);
+            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"];
             tblOrganization.DataSource = myOrganizationTable;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminOrganization adminOrganization = new AdminOrganization();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminOrganization adminOrganization = new AdminOrganization(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminOrganization.Show();
             this.Close();
         }
@@ -54,6 +63,11 @@ namespace NetCSystem
                 txtOrgID.Text = row.Cells[0].Value.ToString();
                 txtOrgName.Text = row.Cells[1].Value.ToString();
                 txtOrgEchelon.Text = row.Cells[2].Value.ToString();
+            }
+
+            else
+            {
+                MessageBox.Show("There are no records!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

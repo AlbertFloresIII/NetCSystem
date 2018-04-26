@@ -13,9 +13,15 @@ namespace NetCSystem
 {
     public partial class ManageRanks : Form
     {
-        public ManageRanks()
+        public ManageRanks(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayRank();
         }
 
@@ -24,7 +30,9 @@ namespace NetCSystem
 
         void DisplayRank()
         {
-            myRankTable.DataSource = myData.DisplayRank().Tables["RankRecord"];
+            int yearID = Convert.ToInt32(lblYearID.Text);
+
+            myRankTable.DataSource = myData.DisplayRank(yearID).Tables["RankRecord"];
             tblRank.DataSource = myRankTable;
         }
 
@@ -56,7 +64,8 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminRanks adminRanks = new AdminRanks();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminRanks adminRanks = new AdminRanks(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminRanks.Show();
             this.Close();
         }

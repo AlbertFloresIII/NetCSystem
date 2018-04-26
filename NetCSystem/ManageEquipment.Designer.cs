@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tblEquipment = new System.Windows.Forms.DataGridView();
+            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDeleteEquipment = new System.Windows.Forms.Button();
@@ -39,9 +42,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusID = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblYearID = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +63,33 @@
             this.EquipmentID,
             this.EquipmentName,
             this.EquipmentCost});
-            this.tblEquipment.Location = new System.Drawing.Point(15, 78);
+            this.tblEquipment.Location = new System.Drawing.Point(15, 129);
             this.tblEquipment.Name = "tblEquipment";
             this.tblEquipment.ReadOnly = true;
-            this.tblEquipment.Size = new System.Drawing.Size(760, 331);
+            this.tblEquipment.Size = new System.Drawing.Size(760, 280);
             this.tblEquipment.TabIndex = 37;
             this.tblEquipment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblEquipment_CellClick);
+            // 
+            // EquipmentID
+            // 
+            this.EquipmentID.DataPropertyName = "equipment_id";
+            this.EquipmentID.HeaderText = "Equipment ID";
+            this.EquipmentID.Name = "EquipmentID";
+            this.EquipmentID.ReadOnly = true;
+            // 
+            // EquipmentName
+            // 
+            this.EquipmentName.DataPropertyName = "equipment_name";
+            this.EquipmentName.HeaderText = "Equipment Name";
+            this.EquipmentName.Name = "EquipmentName";
+            this.EquipmentName.ReadOnly = true;
+            // 
+            // EquipmentCost
+            // 
+            this.EquipmentCost.DataPropertyName = "equipment_cost";
+            this.EquipmentCost.HeaderText = "Equipment Cost";
+            this.EquipmentCost.Name = "EquipmentCost";
+            this.EquipmentCost.ReadOnly = true;
             // 
             // label1
             // 
@@ -160,32 +189,87 @@
             this.label2.TabIndex = 36;
             this.label2.Text = "Equipment ID:";
             // 
-            // EquipmentID
+            // lblStatus
             // 
-            this.EquipmentID.DataPropertyName = "equipment_id";
-            this.EquipmentID.HeaderText = "Equipment ID";
-            this.EquipmentID.Name = "EquipmentID";
-            this.EquipmentID.ReadOnly = true;
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(170, 90);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 64;
             // 
-            // EquipmentName
+            // lblStatusID
             // 
-            this.EquipmentName.DataPropertyName = "equipment_name";
-            this.EquipmentName.HeaderText = "Equipment Name";
-            this.EquipmentName.Name = "EquipmentName";
-            this.EquipmentName.ReadOnly = true;
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(170, 77);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 65;
             // 
-            // EquipmentCost
+            // lblYear
             // 
-            this.EquipmentCost.DataPropertyName = "equipment_cost";
-            this.EquipmentCost.HeaderText = "Equipment Cost";
-            this.EquipmentCost.Name = "EquipmentCost";
-            this.EquipmentCost.ReadOnly = true;
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(66, 90);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 66;
+            // 
+            // lblYearID
+            // 
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(66, 77);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 67;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(118, 90);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "Status:";
+            // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(118, 77);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 69;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(14, 90);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 70;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 71;
+            this.label8.Text = "Year ID:";
             // 
             // ManageEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStatusID);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblYearID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.l);
+            this.Controls.Add(this.lb);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tblEquipment);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
@@ -222,5 +306,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentCost;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusID;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblYearID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -13,16 +13,24 @@ namespace NetCSystem
 {
     public partial class CreateRanks : Form
     {
-        public CreateRanks()
+        public CreateRanks(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
         }
 
         DataAccess myData = new DataAccess();
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminRanks adminRanks = new AdminRanks();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+
+            AdminRanks adminRanks = new AdminRanks(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminRanks.Show();
             this.Close();
         }
@@ -45,12 +53,14 @@ namespace NetCSystem
             else
             {
                 decimal RankSalary = Convert.ToDecimal(txtNewRankSalary.Text);
+                int StatusID = Convert.ToInt32(lblStatusID.Text);
+                int YearID = Convert.ToInt32(lblYearID.Text);
 
-                myData.AddRank(txtNewRankName.Text, RankSalary);
+                myData.AddRank(txtNewRankName.Text, RankSalary, YearID);
 
                 MessageBox.Show("Rank Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                AdminRanks adminRank = new AdminRanks();
+                AdminRanks adminRank = new AdminRanks(lblYearID.Text, lblYear.Text, StatusID, lblStatus.Text);
                 adminRank.Show();
                 this.Close();
             }
