@@ -32,7 +32,7 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myRankTable.DataSource = myData.DisplayRank(yearID).Tables["RankRecord"];
+            myRankTable.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"];
             tblRank.DataSource = myRankTable;
         }
 
@@ -46,9 +46,10 @@ namespace NetCSystem
 
         private void tblRank_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtRankID.Text = "";
-            txtRankName.Text = "";
-            txtRankSalary.Text = "";
+            txtRankID.Clear();
+            txtRankName.Clear();
+            txtRankSalary.Clear();
+            txtRankCode.Clear();
 
             if (e.RowIndex >= 0)
             {
@@ -56,9 +57,10 @@ namespace NetCSystem
                 DataGridViewRow row = this.tblRank.Rows[e.RowIndex];
 
                 //populate the textbox
-                txtRankID.Text = row.Cells[0].Value.ToString();
-                txtRankName.Text = row.Cells[1].Value.ToString();
-                txtRankSalary.Text = row.Cells[2].Value.ToString();
+                txtRankID.Text = row.Cells["RankID"].Value.ToString();
+                txtRankName.Text = row.Cells["RankName"].Value.ToString();
+                txtRankSalary.Text = row.Cells["RankSalary"].Value.ToString();
+                txtRankCode.Text = row.Cells["RankCode"].Value.ToString();
             }
         }
 
@@ -82,7 +84,7 @@ namespace NetCSystem
                 int RankID = Convert.ToInt32(txtRankID.Text);
                 decimal RankSalary = Convert.ToDecimal(txtRankSalary.Text);
 
-                if (!myData.UpdateRank(RankID, txtRankName.Text, RankSalary))
+                if (!myData.UpdateRank(RankID, txtRankName.Text, RankSalary, txtRankCode.Text))
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();

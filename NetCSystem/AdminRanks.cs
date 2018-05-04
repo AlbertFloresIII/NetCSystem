@@ -50,5 +50,10 @@ namespace NetCSystem
             manageRank.Show();
             this.Close();
         }
+
+        private void btnViewEchelon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

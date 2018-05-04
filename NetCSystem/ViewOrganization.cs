@@ -94,35 +94,17 @@ namespace NetCSystem
 
                 posView.Table = myData.DisplayPositionAccdgToOrganization(OrganizationID).Tables["PositionRecord"];
                 tblPositions.DataSource = posView;
+
+                myData.OrganizationID(OrganizationID);
                 myData.CountPosition(OrganizationID);
 
-                List<int> listOfPosID = new List<int>();
-                foreach (DataGridViewRow row in tblPositions.Rows)
-                {
-                    int posID = (int)row.Cells[0].Value;
-                    listOfPosID.Add(posID);
-                }
+                tblPositions.Columns.Remove("rank_id");
 
-                listOfPosID.ForEach(delegate (int posID)
-                {
-                    DataTable myEquipTable = myData.DisplayPerEquipmentAccdgToPositions(posID).Tables["PerEquipRecord"];
-
-                    List<decimal> listOfTotalPerEquip = new List<decimal>();
-
-                    foreach (DataRow dRow in myEquipTable.Rows)
-                    {
-                        int equipID = (int)dRow["equipment_id"];
-
-                        if (myData.GetCostForPerEquip(posID, equipID))
-                        {
-                            decimal addTotalPerEquip = myData.PerEquipmentTotalCost;
-                            listOfTotalPerEquip.Add(addTotalPerEquip);
-                            Console.WriteLine("" + addTotalPerEquip);
-                        }
-                    }
-                    decimal totalPerEquip = listOfTotalPerEquip.Sum();
-                    txtResult.Text = "Total Positions: " + myData.TotalPosition + "\nTotal Personal Equipment:" + totalPerEquip;
-                });
+                txtResult.Text = "Number of Positions: " + myData.TotalPosition +
+                                 "\nTotal Personal Equipment Cost: " + myData.TotalPersonalCost() +
+                                 "\nTotal Position Equipment Cost: " + myData.TotalPositionCost() +
+                                 "\nTotal Equipment Cost: " + myData.TotalEquipmentCost() +
+                                 "\nTotal Salary Cost: " + myData.TotalSalaryCost();
             }
         }
 
@@ -141,12 +123,32 @@ namespace NetCSystem
                 DataView posEquipView = new DataView();
 
                 int posID = (int)row.Cells[0].Value;
+
                 perEquipView.Table = myData.DisplayPerEquipmentAccdgToPositions(posID).Tables["PerEquipRecord"];
                 posEquipView.Table = myData.DisplayPosEquipmentAccdgToPositions(posID).Tables["PosEquipRecord"];
 
                 tblPerEquipment.DataSource = perEquipView;
                 tblPosEquipment.DataSource = posEquipView;
+
+                tblPosEquipment.Columns.Remove("equipment_id");
+                tblPerEquipment.Columns.Remove("equipment_id");
             }
+        }
+
+        private void addChildToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int status_id = Convert.ToInt32(lblStatusID.Text);
+            CreateOrganizationChild createOrganizationChild = new CreateOrganizationChild(lblYearID.Text, lblYear.Text, status_id, lblStatus.Text);
+            createOrganizationChild.Show();
+            this.Close();
+        }
+
+        private void viewHierarchyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int status_id = Convert.ToInt32(lblStatusID.Text);
+            DisplayOrganizationTree display = new DisplayOrganizationTree(lblYearID.Text, lblYear.Text, status_id, lblStatus.Text);
+            display.Show();
+            this.Close();
         }
     }
 }

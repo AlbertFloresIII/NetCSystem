@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.tblOrganization = new System.Windows.Forms.DataGridView();
-            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Echelon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDeleteEquipment = new System.Windows.Forms.Button();
@@ -53,6 +47,15 @@
             this.l = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Echelon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtOrganizationCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrganization)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +68,7 @@
             this.tblOrganization.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrganizationID,
             this.OrganizationName,
+            this.OrganizationCode,
             this.Echelon,
             this.StatusID,
             this.YearStart,
@@ -75,48 +79,6 @@
             this.tblOrganization.Size = new System.Drawing.Size(760, 290);
             this.tblOrganization.TabIndex = 48;
             this.tblOrganization.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblOrganization_CellClick);
-            // 
-            // OrganizationID
-            // 
-            this.OrganizationID.DataPropertyName = "organization_id";
-            this.OrganizationID.HeaderText = "Organization ID";
-            this.OrganizationID.Name = "OrganizationID";
-            this.OrganizationID.ReadOnly = true;
-            // 
-            // OrganizationName
-            // 
-            this.OrganizationName.DataPropertyName = "organization_name";
-            this.OrganizationName.HeaderText = "Organization Name";
-            this.OrganizationName.Name = "OrganizationName";
-            this.OrganizationName.ReadOnly = true;
-            // 
-            // Echelon
-            // 
-            this.Echelon.DataPropertyName = "echelon_name";
-            this.Echelon.HeaderText = "Echelon";
-            this.Echelon.Name = "Echelon";
-            this.Echelon.ReadOnly = true;
-            // 
-            // StatusID
-            // 
-            this.StatusID.DataPropertyName = "status_desc";
-            this.StatusID.HeaderText = "Status";
-            this.StatusID.Name = "StatusID";
-            this.StatusID.ReadOnly = true;
-            // 
-            // YearStart
-            // 
-            this.YearStart.DataPropertyName = "year_start";
-            this.YearStart.HeaderText = "Start";
-            this.YearStart.Name = "YearStart";
-            this.YearStart.ReadOnly = true;
-            // 
-            // YearEnd
-            // 
-            this.YearEnd.DataPropertyName = "year_end";
-            this.YearEnd.HeaderText = "End";
-            this.YearEnd.Name = "YearEnd";
-            this.YearEnd.ReadOnly = true;
             // 
             // label1
             // 
@@ -131,7 +93,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(512, 475);
+            this.btnBack.Location = new System.Drawing.Point(517, 502);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(148, 45);
             this.btnBack.TabIndex = 52;
@@ -142,7 +104,7 @@
             // btnDeleteEquipment
             // 
             this.btnDeleteEquipment.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEquipment.Location = new System.Drawing.Point(606, 424);
+            this.btnDeleteEquipment.Location = new System.Drawing.Point(611, 451);
             this.btnDeleteEquipment.Name = "btnDeleteEquipment";
             this.btnDeleteEquipment.Size = new System.Drawing.Size(148, 45);
             this.btnDeleteEquipment.TabIndex = 53;
@@ -153,7 +115,7 @@
             // btnUpdateEquipment
             // 
             this.btnUpdateEquipment.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateEquipment.Location = new System.Drawing.Point(422, 424);
+            this.btnUpdateEquipment.Location = new System.Drawing.Point(427, 451);
             this.btnUpdateEquipment.Name = "btnUpdateEquipment";
             this.btnUpdateEquipment.Size = new System.Drawing.Size(148, 45);
             this.btnUpdateEquipment.TabIndex = 54;
@@ -171,6 +133,7 @@
             // 
             // txtOrganizationID
             // 
+            this.txtOrganizationID.Enabled = false;
             this.txtOrganizationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.txtOrganizationID.Location = new System.Drawing.Point(187, 419);
             this.txtOrganizationID.Name = "txtOrganizationID";
@@ -181,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(102, 510);
+            this.label4.Location = new System.Drawing.Point(102, 556);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 22);
             this.label4.TabIndex = 45;
@@ -211,7 +174,7 @@
             // 
             this.cboEchelonName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEchelonName.FormattingEnabled = true;
-            this.cboEchelonName.Location = new System.Drawing.Point(187, 510);
+            this.cboEchelonName.Location = new System.Drawing.Point(187, 556);
             this.cboEchelonName.Name = "cboEchelonName";
             this.cboEchelonName.Size = new System.Drawing.Size(188, 21);
             this.cboEchelonName.TabIndex = 55;
@@ -284,11 +247,78 @@
             this.label8.TabIndex = 63;
             this.label8.Text = "Year ID:";
             // 
+            // OrganizationID
+            // 
+            this.OrganizationID.DataPropertyName = "organization_id";
+            this.OrganizationID.HeaderText = "Organization ID";
+            this.OrganizationID.Name = "OrganizationID";
+            this.OrganizationID.ReadOnly = true;
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.DataPropertyName = "organization_name";
+            this.OrganizationName.HeaderText = "Organization Name";
+            this.OrganizationName.Name = "OrganizationName";
+            this.OrganizationName.ReadOnly = true;
+            // 
+            // OrganizationCode
+            // 
+            this.OrganizationCode.DataPropertyName = "organization_code";
+            this.OrganizationCode.HeaderText = "Organization Code";
+            this.OrganizationCode.Name = "OrganizationCode";
+            this.OrganizationCode.ReadOnly = true;
+            // 
+            // Echelon
+            // 
+            this.Echelon.DataPropertyName = "echelon_name";
+            this.Echelon.HeaderText = "Echelon";
+            this.Echelon.Name = "Echelon";
+            this.Echelon.ReadOnly = true;
+            // 
+            // StatusID
+            // 
+            this.StatusID.DataPropertyName = "status_desc";
+            this.StatusID.HeaderText = "Status";
+            this.StatusID.Name = "StatusID";
+            this.StatusID.ReadOnly = true;
+            // 
+            // YearStart
+            // 
+            this.YearStart.DataPropertyName = "year_start";
+            this.YearStart.HeaderText = "Start";
+            this.YearStart.Name = "YearStart";
+            this.YearStart.ReadOnly = true;
+            // 
+            // YearEnd
+            // 
+            this.YearEnd.DataPropertyName = "year_end";
+            this.YearEnd.HeaderText = "End";
+            this.YearEnd.Name = "YearEnd";
+            this.YearEnd.ReadOnly = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 514);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(166, 22);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Organization Code:";
+            // 
+            // txtOrganizationCode
+            // 
+            this.txtOrganizationCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtOrganizationCode.Location = new System.Drawing.Point(187, 509);
+            this.txtOrganizationCode.Name = "txtOrganizationCode";
+            this.txtOrganizationCode.Size = new System.Drawing.Size(188, 31);
+            this.txtOrganizationCode.TabIndex = 50;
+            // 
             // ManageOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 587);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStatusID);
             this.Controls.Add(this.lblYear);
@@ -303,9 +333,11 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDeleteEquipment);
             this.Controls.Add(this.btnUpdateEquipment);
+            this.Controls.Add(this.txtOrganizationCode);
             this.Controls.Add(this.txtOrganizationName);
             this.Controls.Add(this.txtOrganizationID);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "ManageOrganization";
@@ -330,12 +362,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboEchelonName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Echelon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusID;
         private System.Windows.Forms.Label lblYear;
@@ -344,5 +370,14 @@
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Echelon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtOrganizationCode;
     }
 }

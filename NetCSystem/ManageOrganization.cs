@@ -58,8 +58,9 @@ namespace NetCSystem
 
         private void tblOrganization_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtOrganizationID.Text = "";
-            txtOrganizationName.Text = "";
+            txtOrganizationID.Clear();
+            txtOrganizationName.Clear();
+            txtOrganizationCode.Clear();
 
             if (e.RowIndex >= 0)
             {
@@ -67,8 +68,9 @@ namespace NetCSystem
                 DataGridViewRow row = this.tblOrganization.Rows[e.RowIndex];
 
                 //populate the textbox
-                txtOrganizationID.Text = row.Cells[0].Value.ToString();
-                txtOrganizationName.Text = row.Cells[1].Value.ToString();
+                txtOrganizationID.Text = row.Cells["OrganizationID"].Value.ToString();
+                txtOrganizationName.Text = row.Cells["OrganizationName"].Value.ToString();
+                txtOrganizationCode.Text = row.Cells["OrganizationCode"].Value.ToString();
             }
         }
 
@@ -93,7 +95,7 @@ namespace NetCSystem
                 int OrganzationID = Convert.ToInt32(txtOrganizationID.Text);
                 int OrganizationEchelon = (int)cboEchelonName.SelectedValue;
 
-                if (!myData.UpdateOrganization(OrganzationID, txtOrganizationName.Text, OrganizationEchelon))
+                if (!myData.UpdateOrganization(OrganzationID, txtOrganizationName.Text, OrganizationEchelon, txtOrganizationCode.Text))
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();

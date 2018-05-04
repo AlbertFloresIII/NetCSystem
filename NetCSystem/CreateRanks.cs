@@ -56,7 +56,7 @@ namespace NetCSystem
                 int StatusID = Convert.ToInt32(lblStatusID.Text);
                 int YearID = Convert.ToInt32(lblYearID.Text);
 
-                myData.AddRank(txtNewRankName.Text, RankSalary, YearID);
+                myData.AddRank(txtNewRankName.Text, RankSalary, YearID, txtRankCode.Text);
 
                 MessageBox.Show("Rank Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -114,6 +114,12 @@
     <Compile Include="CreateOrganization.Designer.cs">
       <DependentUpon>CreateOrganization.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateOrganizationChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateOrganizationChild.Designer.cs">
+      <DependentUpon>CreateOrganizationChild.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreatePosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="CreateYear.Designer.cs">
       <DependentUpon>CreateYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayOrganizationTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayOrganizationTree.Designer.cs">
+      <DependentUpon>DisplayOrganizationTree.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -215,6 +227,9 @@
     <EmbeddedResource Include="CreateOrganization.resx">
       <DependentUpon>CreateOrganization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateOrganizationChild.resx">
+      <DependentUpon>CreateOrganizationChild.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreatePosition.resx">
       <DependentUpon>CreatePosition.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateYear.resx">
       <DependentUpon>CreateYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayOrganizationTree.resx">
+      <DependentUpon>DisplayOrganizationTree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

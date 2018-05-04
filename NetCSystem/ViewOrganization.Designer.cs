@@ -36,15 +36,16 @@
             this.txtOrgName = new System.Windows.Forms.TextBox();
             this.txtOrgID = new System.Windows.Forms.TextBox();
             this.tblOrganization = new System.Windows.Forms.DataGridView();
+            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EchelonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnView = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tblPositions = new System.Windows.Forms.DataGridView();
-            this.PositionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PersonnelQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RankID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tblPerEquipment = new System.Windows.Forms.DataGridView();
             this.PerPosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,12 +65,15 @@
             this.l = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EchelonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addChildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHierarchyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PositionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonnelQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrganization)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblPerEquipment)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblPosEquipment)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -89,9 +94,9 @@
             this.groupBox1.Controls.Add(this.txtOrgName);
             this.groupBox1.Controls.Add(this.txtOrgID);
             this.groupBox1.Controls.Add(this.tblOrganization);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(337, 389);
+            this.groupBox1.Size = new System.Drawing.Size(458, 389);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Organization";
@@ -163,264 +168,9 @@
             this.tblOrganization.Location = new System.Drawing.Point(6, 19);
             this.tblOrganization.Name = "tblOrganization";
             this.tblOrganization.ReadOnly = true;
-            this.tblOrganization.Size = new System.Drawing.Size(325, 305);
+            this.tblOrganization.Size = new System.Drawing.Size(446, 305);
             this.tblOrganization.TabIndex = 0;
             this.tblOrganization.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblOrganization_CellClick);
-            // 
-            // btnView
-            // 
-            this.btnView.Location = new System.Drawing.Point(13, 406);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(83, 23);
-            this.btnView.TabIndex = 2;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(219, 407);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(83, 23);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tblPositions);
-            this.groupBox2.Location = new System.Drawing.Point(355, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(379, 168);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Positions";
-            // 
-            // tblPositions
-            // 
-            this.tblPositions.AllowUserToAddRows = false;
-            this.tblPositions.AllowUserToDeleteRows = false;
-            this.tblPositions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tblPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PositionID,
-            this.PositionName,
-            this.PersonnelQuantity,
-            this.RankID,
-            this.Organization});
-            this.tblPositions.Location = new System.Drawing.Point(6, 12);
-            this.tblPositions.Name = "tblPositions";
-            this.tblPositions.ReadOnly = true;
-            this.tblPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblPositions.Size = new System.Drawing.Size(367, 150);
-            this.tblPositions.TabIndex = 0;
-            this.tblPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblPositions_CellClick);
-            // 
-            // PositionID
-            // 
-            this.PositionID.DataPropertyName = "position_id";
-            this.PositionID.HeaderText = "Position ID";
-            this.PositionID.Name = "PositionID";
-            this.PositionID.ReadOnly = true;
-            // 
-            // PositionName
-            // 
-            this.PositionName.DataPropertyName = "position_name";
-            this.PositionName.HeaderText = "Position Name";
-            this.PositionName.Name = "PositionName";
-            this.PositionName.ReadOnly = true;
-            // 
-            // PersonnelQuantity
-            // 
-            this.PersonnelQuantity.DataPropertyName = "personnel_qty";
-            this.PersonnelQuantity.HeaderText = "Personnel Quantity";
-            this.PersonnelQuantity.Name = "PersonnelQuantity";
-            this.PersonnelQuantity.ReadOnly = true;
-            // 
-            // RankID
-            // 
-            this.RankID.DataPropertyName = "rank_id";
-            this.RankID.HeaderText = "Rank ID";
-            this.RankID.Name = "RankID";
-            this.RankID.ReadOnly = true;
-            // 
-            // Organization
-            // 
-            this.Organization.DataPropertyName = "organization_id";
-            this.Organization.HeaderText = "Organization";
-            this.Organization.Name = "Organization";
-            this.Organization.ReadOnly = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tblPerEquipment);
-            this.groupBox4.Location = new System.Drawing.Point(740, 95);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(259, 168);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Personel Equipment";
-            // 
-            // tblPerEquipment
-            // 
-            this.tblPerEquipment.AllowUserToAddRows = false;
-            this.tblPerEquipment.AllowUserToDeleteRows = false;
-            this.tblPerEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tblPerEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblPerEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PerPosID,
-            this.PerEquipID,
-            this.PerEquipQty});
-            this.tblPerEquipment.Location = new System.Drawing.Point(6, 12);
-            this.tblPerEquipment.Name = "tblPerEquipment";
-            this.tblPerEquipment.ReadOnly = true;
-            this.tblPerEquipment.Size = new System.Drawing.Size(247, 150);
-            this.tblPerEquipment.TabIndex = 0;
-            // 
-            // PerPosID
-            // 
-            this.PerPosID.DataPropertyName = "position_id";
-            this.PerPosID.HeaderText = "Position ID";
-            this.PerPosID.Name = "PerPosID";
-            this.PerPosID.ReadOnly = true;
-            // 
-            // PerEquipID
-            // 
-            this.PerEquipID.DataPropertyName = "equipment_id";
-            this.PerEquipID.HeaderText = "Equipment ID";
-            this.PerEquipID.Name = "PerEquipID";
-            this.PerEquipID.ReadOnly = true;
-            // 
-            // PerEquipQty
-            // 
-            this.PerEquipQty.DataPropertyName = "equipment_qty";
-            this.PerEquipQty.HeaderText = "Equipment Quantity";
-            this.PerEquipQty.Name = "PerEquipQty";
-            this.PerEquipQty.ReadOnly = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.tblPosEquipment);
-            this.groupBox5.Location = new System.Drawing.Point(740, 269);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(259, 168);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Position Equipment";
-            // 
-            // tblPosEquipment
-            // 
-            this.tblPosEquipment.AllowUserToAddRows = false;
-            this.tblPosEquipment.AllowUserToDeleteRows = false;
-            this.tblPosEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tblPosEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblPosEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PosPosEquipID,
-            this.PosEquipID,
-            this.PosEquipQty});
-            this.tblPosEquipment.Location = new System.Drawing.Point(6, 12);
-            this.tblPosEquipment.Name = "tblPosEquipment";
-            this.tblPosEquipment.ReadOnly = true;
-            this.tblPosEquipment.Size = new System.Drawing.Size(247, 150);
-            this.tblPosEquipment.TabIndex = 0;
-            // 
-            // PosPosEquipID
-            // 
-            this.PosPosEquipID.DataPropertyName = "position_id";
-            this.PosPosEquipID.HeaderText = "Position ID";
-            this.PosPosEquipID.Name = "PosPosEquipID";
-            this.PosPosEquipID.ReadOnly = true;
-            // 
-            // PosEquipID
-            // 
-            this.PosEquipID.DataPropertyName = "equipment_id";
-            this.PosEquipID.HeaderText = "Equipment ID";
-            this.PosEquipID.Name = "PosEquipID";
-            this.PosEquipID.ReadOnly = true;
-            // 
-            // PosEquipQty
-            // 
-            this.PosEquipQty.DataPropertyName = "equipment_qty";
-            this.PosEquipQty.HeaderText = "Equipment Quantity";
-            this.PosEquipQty.Name = "PosEquipQty";
-            this.PosEquipQty.ReadOnly = true;
-            // 
-            // txtResult
-            // 
-            this.txtResult.Location = new System.Drawing.Point(355, 186);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(373, 251);
-            this.txtResult.TabIndex = 4;
-            this.txtResult.Text = "";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(947, 37);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 13);
-            this.lblStatus.TabIndex = 52;
-            // 
-            // lblStatusID
-            // 
-            this.lblStatusID.AutoSize = true;
-            this.lblStatusID.Location = new System.Drawing.Point(947, 24);
-            this.lblStatusID.Name = "lblStatusID";
-            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
-            this.lblStatusID.TabIndex = 53;
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(843, 37);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(0, 13);
-            this.lblYear.TabIndex = 54;
-            // 
-            // lblYearID
-            // 
-            this.lblYearID.AutoSize = true;
-            this.lblYearID.Location = new System.Drawing.Point(843, 24);
-            this.lblYearID.Name = "lblYearID";
-            this.lblYearID.Size = new System.Drawing.Size(0, 13);
-            this.lblYearID.TabIndex = 55;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(895, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 56;
-            this.label14.Text = "Status:";
-            // 
-            // l
-            // 
-            this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(895, 24);
-            this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(54, 13);
-            this.l.TabIndex = 57;
-            this.l.Text = "Status ID:";
-            // 
-            // lb
-            // 
-            this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(791, 37);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(32, 13);
-            this.lb.TabIndex = 58;
-            this.lb.Text = "Year:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(791, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 13);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Year ID:";
             // 
             // OrganizationID
             // 
@@ -464,11 +214,300 @@
             this.YearEnd.Name = "YearEnd";
             this.YearEnd.ReadOnly = true;
             // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(13, 421);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(83, 23);
+            this.btnView.TabIndex = 2;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(219, 422);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(83, 23);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tblPositions);
+            this.groupBox2.Location = new System.Drawing.Point(476, 27);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(505, 168);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Positions";
+            // 
+            // tblPositions
+            // 
+            this.tblPositions.AllowUserToAddRows = false;
+            this.tblPositions.AllowUserToDeleteRows = false;
+            this.tblPositions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PositionID,
+            this.PositionName,
+            this.PersonnelQuantity,
+            this.Rank});
+            this.tblPositions.Location = new System.Drawing.Point(6, 12);
+            this.tblPositions.Name = "tblPositions";
+            this.tblPositions.ReadOnly = true;
+            this.tblPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblPositions.Size = new System.Drawing.Size(493, 150);
+            this.tblPositions.TabIndex = 0;
+            this.tblPositions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblPositions_CellClick);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tblPerEquipment);
+            this.groupBox4.Location = new System.Drawing.Point(987, 100);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(350, 168);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Personel Equipment";
+            // 
+            // tblPerEquipment
+            // 
+            this.tblPerEquipment.AllowUserToAddRows = false;
+            this.tblPerEquipment.AllowUserToDeleteRows = false;
+            this.tblPerEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblPerEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblPerEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PerPosID,
+            this.PerEquipID,
+            this.PerEquipQty});
+            this.tblPerEquipment.Location = new System.Drawing.Point(6, 12);
+            this.tblPerEquipment.Name = "tblPerEquipment";
+            this.tblPerEquipment.ReadOnly = true;
+            this.tblPerEquipment.Size = new System.Drawing.Size(338, 150);
+            this.tblPerEquipment.TabIndex = 0;
+            // 
+            // PerPosID
+            // 
+            this.PerPosID.DataPropertyName = "position_name";
+            this.PerPosID.HeaderText = "Position Name";
+            this.PerPosID.Name = "PerPosID";
+            this.PerPosID.ReadOnly = true;
+            // 
+            // PerEquipID
+            // 
+            this.PerEquipID.DataPropertyName = "equipment_name";
+            this.PerEquipID.HeaderText = "Equipment Name";
+            this.PerEquipID.Name = "PerEquipID";
+            this.PerEquipID.ReadOnly = true;
+            // 
+            // PerEquipQty
+            // 
+            this.PerEquipQty.DataPropertyName = "equipment_qty";
+            this.PerEquipQty.HeaderText = "Equipment Quantity";
+            this.PerEquipQty.Name = "PerEquipQty";
+            this.PerEquipQty.ReadOnly = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tblPosEquipment);
+            this.groupBox5.Location = new System.Drawing.Point(987, 274);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(350, 168);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Position Equipment";
+            // 
+            // tblPosEquipment
+            // 
+            this.tblPosEquipment.AllowUserToAddRows = false;
+            this.tblPosEquipment.AllowUserToDeleteRows = false;
+            this.tblPosEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblPosEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblPosEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PosPosEquipID,
+            this.PosEquipID,
+            this.PosEquipQty});
+            this.tblPosEquipment.Location = new System.Drawing.Point(6, 12);
+            this.tblPosEquipment.Name = "tblPosEquipment";
+            this.tblPosEquipment.ReadOnly = true;
+            this.tblPosEquipment.Size = new System.Drawing.Size(338, 150);
+            this.tblPosEquipment.TabIndex = 0;
+            // 
+            // PosPosEquipID
+            // 
+            this.PosPosEquipID.DataPropertyName = "position_name";
+            this.PosPosEquipID.HeaderText = "Position Name";
+            this.PosPosEquipID.Name = "PosPosEquipID";
+            this.PosPosEquipID.ReadOnly = true;
+            // 
+            // PosEquipID
+            // 
+            this.PosEquipID.DataPropertyName = "equipment_name";
+            this.PosEquipID.HeaderText = "Equipment Name";
+            this.PosEquipID.Name = "PosEquipID";
+            this.PosEquipID.ReadOnly = true;
+            // 
+            // PosEquipQty
+            // 
+            this.PosEquipQty.DataPropertyName = "equipment_qty";
+            this.PosEquipQty.HeaderText = "Equipment Quantity";
+            this.PosEquipQty.Name = "PosEquipQty";
+            this.PosEquipQty.ReadOnly = true;
+            // 
+            // txtResult
+            // 
+            this.txtResult.Enabled = false;
+            this.txtResult.Location = new System.Drawing.Point(476, 196);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(505, 251);
+            this.txtResult.TabIndex = 4;
+            this.txtResult.Text = "";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(1169, 46);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 52;
+            // 
+            // lblStatusID
+            // 
+            this.lblStatusID.AutoSize = true;
+            this.lblStatusID.Location = new System.Drawing.Point(1169, 33);
+            this.lblStatusID.Name = "lblStatusID";
+            this.lblStatusID.Size = new System.Drawing.Size(0, 13);
+            this.lblStatusID.TabIndex = 53;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(1065, 46);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 13);
+            this.lblYear.TabIndex = 54;
+            // 
+            // lblYearID
+            // 
+            this.lblYearID.AutoSize = true;
+            this.lblYearID.Location = new System.Drawing.Point(1065, 33);
+            this.lblYearID.Name = "lblYearID";
+            this.lblYearID.Size = new System.Drawing.Size(0, 13);
+            this.lblYearID.TabIndex = 55;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1117, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 13);
+            this.label14.TabIndex = 56;
+            this.label14.Text = "Status:";
+            // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(1117, 33);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(54, 13);
+            this.l.TabIndex = 57;
+            this.l.Text = "Status ID:";
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(1013, 46);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(32, 13);
+            this.lb.TabIndex = 58;
+            this.lb.Text = "Year:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1013, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Year ID:";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1349, 24);
+            this.menuStrip1.TabIndex = 60;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addChildToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // addChildToolStripMenuItem
+            // 
+            this.addChildToolStripMenuItem.Name = "addChildToolStripMenuItem";
+            this.addChildToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.addChildToolStripMenuItem.Text = "Add Hierarchy";
+            this.addChildToolStripMenuItem.Click += new System.EventHandler(this.addChildToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHierarchyToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // viewHierarchyToolStripMenuItem
+            // 
+            this.viewHierarchyToolStripMenuItem.Name = "viewHierarchyToolStripMenuItem";
+            this.viewHierarchyToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.viewHierarchyToolStripMenuItem.Text = "View Hierarchy";
+            this.viewHierarchyToolStripMenuItem.Click += new System.EventHandler(this.viewHierarchyToolStripMenuItem_Click);
+            // 
+            // PositionID
+            // 
+            this.PositionID.DataPropertyName = "position_id";
+            this.PositionID.HeaderText = "Position ID";
+            this.PositionID.Name = "PositionID";
+            this.PositionID.ReadOnly = true;
+            // 
+            // PositionName
+            // 
+            this.PositionName.DataPropertyName = "position_name";
+            this.PositionName.HeaderText = "Position Name";
+            this.PositionName.Name = "PositionName";
+            this.PositionName.ReadOnly = true;
+            // 
+            // PersonnelQuantity
+            // 
+            this.PersonnelQuantity.DataPropertyName = "personnel_qty";
+            this.PersonnelQuantity.HeaderText = "Personnel Quantity";
+            this.PersonnelQuantity.Name = "PersonnelQuantity";
+            this.PersonnelQuantity.ReadOnly = true;
+            // 
+            // Rank
+            // 
+            this.Rank.DataPropertyName = "rank_name";
+            this.Rank.HeaderText = "Rank";
+            this.Rank.Name = "Rank";
+            this.Rank.ReadOnly = true;
+            // 
             // ViewOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 461);
+            this.ClientSize = new System.Drawing.Size(1349, 465);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStatusID);
             this.Controls.Add(this.lblYear);
@@ -484,6 +523,8 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ViewOrganization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Organization";
@@ -496,6 +537,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblPerEquipment)).EndInit();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblPosEquipment)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,17 +563,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView tblPosEquipment;
         private System.Windows.Forms.RichTextBox txtResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PositionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PersonnelQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RankID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Organization;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerPosID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosPosEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipQty;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusID;
         private System.Windows.Forms.Label lblYear;
@@ -545,5 +577,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerPosID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosPosEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipQty;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addChildToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewHierarchyToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonnelQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
     }
 }

@@ -32,7 +32,7 @@ namespace NetCSystem
         {
             int YearID = Convert.ToInt32(lblYearID.Text);
 
-            myEquipmentTable.DataSource = myData.DisplayEquipment(YearID).Tables["EquipmentRecord"];
+            myEquipmentTable.DataSource = myData.DisplayEquipmentAccdgToYear(YearID).Tables["EquipmentRecord"];
             tblEquipment.DataSource = myEquipmentTable;
         }
 
@@ -54,9 +54,9 @@ namespace NetCSystem
 
         private void tblEquipment_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtEquipmentID.Text = "";
-            txtEquipmentName.Text = "";
-            txtEquipmentCost.Text = "";
+            txtEquipmentID.Clear();
+            txtEquipmentName.Clear();
+            txtEquipmentCost.Clear();
 
             if (e.RowIndex >= 0)
             {
@@ -64,9 +64,9 @@ namespace NetCSystem
                 DataGridViewRow row = this.tblEquipment.Rows[e.RowIndex];
 
                 //populate the textbox
-                txtEquipmentID.Text = row.Cells[0].Value.ToString();
-                txtEquipmentName.Text = row.Cells[1].Value.ToString();
-                txtEquipmentCost.Text = row.Cells[2].Value.ToString();
+                txtEquipmentID.Text = row.Cells["EquipmentID"].Value.ToString();
+                txtEquipmentName.Text = row.Cells["EquipmentName"].Value.ToString();
+                txtEquipmentCost.Text = row.Cells["EquipmentCost"].Value.ToString();
             }
         }
 

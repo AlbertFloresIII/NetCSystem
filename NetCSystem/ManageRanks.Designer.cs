@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.tblRank = new System.Windows.Forms.DataGridView();
-            this.RankID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RankSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdateRank = new System.Windows.Forms.Button();
             this.txtRankName = new System.Windows.Forms.TextBox();
@@ -50,6 +47,13 @@
             this.l = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.RankID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RankCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RankSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRankCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblRank)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,34 +66,15 @@
             this.tblRank.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RankID,
             this.RankName,
-            this.RankSalary});
+            this.RankCode,
+            this.RankSalary,
+            this.Year});
             this.tblRank.Location = new System.Drawing.Point(12, 132);
             this.tblRank.Name = "tblRank";
             this.tblRank.ReadOnly = true;
             this.tblRank.Size = new System.Drawing.Size(760, 285);
             this.tblRank.TabIndex = 27;
             this.tblRank.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRank_CellClick);
-            // 
-            // RankID
-            // 
-            this.RankID.DataPropertyName = "rank_ID";
-            this.RankID.HeaderText = "Rank ID";
-            this.RankID.Name = "RankID";
-            this.RankID.ReadOnly = true;
-            // 
-            // RankName
-            // 
-            this.RankName.DataPropertyName = "rank_Name";
-            this.RankName.HeaderText = "Rank Name";
-            this.RankName.Name = "RankName";
-            this.RankName.ReadOnly = true;
-            // 
-            // RankSalary
-            // 
-            this.RankSalary.DataPropertyName = "rank_Salary";
-            this.RankSalary.HeaderText = "Rank Salary";
-            this.RankSalary.Name = "RankSalary";
-            this.RankSalary.ReadOnly = true;
             // 
             // label1
             // 
@@ -122,6 +107,7 @@
             // 
             // txtRankID
             // 
+            this.txtRankID.Enabled = false;
             this.txtRankID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.txtRankID.Location = new System.Drawing.Point(121, 428);
             this.txtRankID.Name = "txtRankID";
@@ -152,7 +138,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 525);
+            this.label4.Location = new System.Drawing.Point(6, 566);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 22);
             this.label4.TabIndex = 25;
@@ -161,7 +147,7 @@
             // txtRankSalary
             // 
             this.txtRankSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtRankSalary.Location = new System.Drawing.Point(127, 521);
+            this.txtRankSalary.Location = new System.Drawing.Point(127, 562);
             this.txtRankSalary.Name = "txtRankSalary";
             this.txtRankSalary.Size = new System.Drawing.Size(182, 31);
             this.txtRankSalary.TabIndex = 28;
@@ -257,11 +243,64 @@
             this.label8.TabIndex = 71;
             this.label8.Text = "Year ID:";
             // 
+            // RankID
+            // 
+            this.RankID.DataPropertyName = "rank_ID";
+            this.RankID.HeaderText = "Rank ID";
+            this.RankID.Name = "RankID";
+            this.RankID.ReadOnly = true;
+            // 
+            // RankName
+            // 
+            this.RankName.DataPropertyName = "rank_Name";
+            this.RankName.HeaderText = "Rank Name";
+            this.RankName.Name = "RankName";
+            this.RankName.ReadOnly = true;
+            // 
+            // RankCode
+            // 
+            this.RankCode.DataPropertyName = "rank_code";
+            this.RankCode.HeaderText = "Rank Code";
+            this.RankCode.Name = "RankCode";
+            this.RankCode.ReadOnly = true;
+            // 
+            // RankSalary
+            // 
+            this.RankSalary.DataPropertyName = "rank_Salary";
+            this.RankSalary.HeaderText = "Rank Salary";
+            this.RankSalary.Name = "RankSalary";
+            this.RankSalary.ReadOnly = true;
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "year_start";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(4, 525);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 22);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Rank Code:";
+            // 
+            // txtRankCode
+            // 
+            this.txtRankCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtRankCode.Location = new System.Drawing.Point(121, 520);
+            this.txtRankCode.Name = "txtRankCode";
+            this.txtRankCode.Size = new System.Drawing.Size(188, 31);
+            this.txtRankCode.TabIndex = 28;
+            // 
             // ManageRanks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 607);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStatusID);
             this.Controls.Add(this.lblYear);
@@ -276,8 +315,10 @@
             this.Controls.Add(this.btnDeleteRank);
             this.Controls.Add(this.btnUpdateRank);
             this.Controls.Add(this.txtRankSalary);
+            this.Controls.Add(this.txtRankCode);
             this.Controls.Add(this.txtRankName);
             this.Controls.Add(this.txtRankID);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -303,9 +344,6 @@
         private System.Windows.Forms.TextBox txtRankSalary;
         private System.Windows.Forms.Button btnDeleteRank;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RankID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RankName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RankSalary;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusID;
         private System.Windows.Forms.Label lblYear;
@@ -314,5 +352,12 @@
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RankID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RankName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RankCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RankSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Year;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtRankCode;
     }
 }

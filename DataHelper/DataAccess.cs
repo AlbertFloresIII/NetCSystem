@@ -13,8 +13,8 @@ namespace DataHelper
     {
         bool recordFound;
         string positionName, statusName;
-        decimal equipmentCost, perEquipmentTotalCost;
-        int positionID, personnelQty, rankID, organizationID, equipmentID, totalPosition;
+        decimal equipmentCost, totalPerCost;
+        int positionID, personnelQty, rankID, organizationID, equipmentID, totalPosition, perEquipmentQty, posEquipmentQty;
 
         static string con = @"server=localhost;user id=root;pwd=root;persistsecurityinfo=True;database=netcsys;SslMode=none";
         MySqlConnection myCon = new MySqlConnection(con);
@@ -43,16 +43,28 @@ namespace DataHelper
             set { equipmentID = value; }
         }
 
-        public decimal PerEquipmentTotalCost
+        public int PerEquipmentQty
         {
-            get { return perEquipmentTotalCost; }
-            set { perEquipmentTotalCost = value; }
+            get { return perEquipmentQty; }
+            set { perEquipmentQty = value; }
+        }
+
+        public int PosEquipmentQty
+        {
+            get { return posEquipmentQty; }
+            set { posEquipmentQty = value; }
         }
 
         public decimal EquipmentCost
         {
             get { return equipmentCost; }
             set { equipmentCost = value; }
+        }
+
+        public decimal TotalPerCost
+        {
+            get { return totalPerCost; }
+            set { totalPerCost = value; }
         }
 
         public int PersonnelQuantity
@@ -73,10 +85,9 @@ namespace DataHelper
             set { totalPosition = value; }
         }
 
-        public int OrganizationID
+        public void OrganizationID(int organizationID)
         {
-            get { return organizationID; }
-            set { organizationID = value; }
+            this.organizationID = organizationID;
         }
 
         //Add Equipment
@@ -95,7 +106,7 @@ namespace DataHelper
         }
 
         //Add Rank
-        public void AddRank(string RankName, decimal RankSalary, int YearID)
+        public void AddRank(string RankName, decimal RankSalary, int YearID, string RankCode)
         {
 
             myCon.Open();
@@ -105,8 +116,25 @@ namespace DataHelper
             SaveRank.Parameters.Add("RankName", MySqlDbType.VarChar).Value = RankName;
             SaveRank.Parameters.Add("RankSalary", MySqlDbType.Decimal).Value = RankSalary;
             SaveRank.Parameters.Add("YearID", MySqlDbType.Int32).Value = YearID;
+            SaveRank.Parameters.Add("RankCode", MySqlDbType.VarChar).Value = RankCode;
 
             SaveRank.ExecuteNonQuery();
+            myCon.Close();
+        }
+
+        //AddChild
+        public void AddChild(int Ancestor, int Descendant, int StatusID, int YearID)
+        {
+            myCon.Open();
+            MySqlCommand SaveChild = new MySqlCommand("CreateChild", myCon);
+            SaveChild.CommandType = CommandType.StoredProcedure;
+
+            SaveChild.Parameters.Add("Ancestor", MySqlDbType.Int32).Value = Ancestor;
+            SaveChild.Parameters.Add("Descendant", MySqlDbType.Int32).Value = Descendant;
+            SaveChild.Parameters.Add("StatusID", MySqlDbType.Int32).Value = StatusID;
+            SaveChild.Parameters.Add("YearID", MySqlDbType.Int32).Value = YearID;
+
+            SaveChild.ExecuteNonQuery();
             myCon.Close();
         }
 
@@ -151,7 +179,7 @@ namespace DataHelper
         }
 
         //Add Echelon
-        public void AddEchelon(string EchelonName)
+        public void AddEchelon(string EchelonName, string EchelonCode)
         {
             //recordFound = false;
             myCon.Open();
@@ -160,15 +188,14 @@ namespace DataHelper
            SaveEchelon.CommandType = CommandType.StoredProcedure;
 
            SaveEchelon.Parameters.Add("EchelonName", MySqlDbType.VarChar).Value = EchelonName;
+            SaveEchelon.Parameters.Add("EchelonCode", MySqlDbType.VarChar).Value = EchelonCode;
 
            SaveEchelon.ExecuteNonQuery();
            myCon.Close();
-
-            
         }
 
         //Add Organization
-        public void AddOrganization(string OrganizationName, int OrganizationEchelon, int OrganizationStatus, int YearID)
+        public void AddOrganization(string OrganizationName, int OrganizationEchelon, int OrganizationStatus, int YearID, string OrganizationCode)
         {
             myCon.Open();
 
@@ -179,6 +206,7 @@ namespace DataHelper
             SaveOrganization.Parameters.Add("OrganizationEchelon", MySqlDbType.Int32).Value = OrganizationEchelon;
             SaveOrganization.Parameters.Add("OrganizationStatus", MySqlDbType.Int32).Value = OrganizationStatus;
             SaveOrganization.Parameters.Add("YearID", MySqlDbType.Int32).Value = YearID;
+            SaveOrganization.Parameters.Add("OrganizationCode", MySqlDbType.VarChar).Value = OrganizationCode;
 
             SaveOrganization.ExecuteNonQuery();
             myCon.Close();
@@ -313,7 +341,7 @@ namespace DataHelper
             myCon.Close();
         }
 
-        // Display Echelon in Table
+        //Display Echelon in Table
         public DataSet DisplayEchelon()
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayEchelon", myCon);
@@ -332,9 +360,9 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayEquipment(int YearID)
+        public DataSet DisplayEquipmentAccdgToYear(int YearID)
         {
-            MySqlDataAdapter da = new MySqlDataAdapter("DisplayEquipment", myCon);
+            MySqlDataAdapter da = new MySqlDataAdapter("DisplayEquipmentAccdgToYear", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             da.SelectCommand.Parameters.Add("YearID", MySqlDbType.Int32).Value = YearID;
@@ -377,6 +405,18 @@ namespace DataHelper
             return ds;
         }
 
+        public DataSet DisplayOrganizationTree(int Ancestor)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter("DisplayOrganizationTree", myCon);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("Ancestor", MySqlDbType.Int32).Value = Ancestor;
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Organizationrecord");
+            return ds;
+        }
+
         public DataSet DisplayPosEquipmentAccdgToPositions(int PositionID)
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayPosEquipmentAccdgToPositions", myCon);
@@ -389,24 +429,50 @@ namespace DataHelper
             return ds;
         }
 
-        public bool GetCostForPerEquip (int PositionID, int EquipmentID)
+        public bool GetTotalQtyForPerEquip(int PositionID, int EquipmentID)
         {
             recordFound = false;
             myCon.Open();
 
-            MySqlCommand getTotalCost = new MySqlCommand("GetCostForPerEquip", myCon);
-            getTotalCost.CommandType = CommandType.StoredProcedure;
+            MySqlCommand getTotalQty = new MySqlCommand("GetTotalQtyForPerEquip", myCon);
+            getTotalQty.CommandType = CommandType.StoredProcedure;
 
-            getTotalCost.Parameters.Add("PositionID", MySqlDbType.Int32).Value = PositionID;
-            getTotalCost.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = EquipmentID;
+            getTotalQty.Parameters.Add("PositionID", MySqlDbType.Int32).Value = PositionID;
+            getTotalQty.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = EquipmentID;
 
-            MySqlDataReader dr = getTotalCost.ExecuteReader();
+            MySqlDataReader dr = getTotalQty.ExecuteReader();
 
             while(dr.Read())
             {
                 recordFound = true;
 
-                perEquipmentTotalCost = Convert.ToDecimal(dr["CostOfPerEquip"]);
+                perEquipmentQty = Convert.ToInt32(dr["QtyOfPerEquip"]);
+
+                break;
+            }
+
+            myCon.Close();
+            return recordFound;
+        }
+
+        public bool GetTotalQtyForPosEquip(int PositionID, int EquipmentID)
+        {
+            recordFound = false;
+            myCon.Open();
+
+            MySqlCommand getTotalQty = new MySqlCommand("GetTotalQtyForPosEquip", myCon);
+            getTotalQty.CommandType = CommandType.StoredProcedure;
+
+            getTotalQty.Parameters.Add("PositionID", MySqlDbType.Int32).Value = PositionID;
+            getTotalQty.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = EquipmentID;
+
+            MySqlDataReader dr = getTotalQty.ExecuteReader();
+
+            while (dr.Read())
+            {
+                recordFound = true;
+
+                posEquipmentQty = Convert.ToInt32(dr["QtyOfPosEquip"]);
 
                 break;
             }
@@ -502,9 +568,9 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayRank(int YearID)
+        public DataSet DisplayRankAccdgToYear(int YearID)
         {
-            MySqlDataAdapter da = new MySqlDataAdapter("DisplayRank", myCon);
+            MySqlDataAdapter da = new MySqlDataAdapter("DisplayRankAccdgToYear", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             da.SelectCommand.Parameters.Add("YearID", MySqlDbType.Int32).Value = YearID;
@@ -537,7 +603,7 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateEchelon(int EchelonID, string EchelonName)
+        public bool UpdateEchelon(int EchelonID, string EchelonName, string EchelonCode)
         {
             recordFound = false;
             myCon.Open();
@@ -549,6 +615,7 @@ namespace DataHelper
 
                 UpdateEchelon.Parameters.Add("EchelonID", MySqlDbType.Int32).Value = EchelonID;
                 UpdateEchelon.Parameters.Add("EchelonName", MySqlDbType.VarChar).Value = EchelonName;
+                UpdateEchelon.Parameters.Add("EchelonCode", MySqlDbType.VarChar).Value = EchelonCode;
 
                 UpdateEchelon.ExecuteNonQuery();
                 myCon.Close();
@@ -592,7 +659,7 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateOrganization(int OrganizationID, string OrganizationName, int OrganizationEchelon)
+        public bool UpdateOrganization(int OrganizationID, string OrganizationName, int OrganizationEchelon, string OrganizationCode)
         {
             recordFound = false;
             myCon.Open();
@@ -605,6 +672,7 @@ namespace DataHelper
                 UpdateOrganization.Parameters.Add("OrganizationID", MySqlDbType.Int32).Value = OrganizationID;
                 UpdateOrganization.Parameters.Add("OrganizationName", MySqlDbType.VarChar).Value = OrganizationName;
                 UpdateOrganization.Parameters.Add("OrganizationEchelon", MySqlDbType.Int32).Value = OrganizationEchelon;
+                UpdateOrganization.Parameters.Add("OrganizationCode", MySqlDbType.VarChar).Value = OrganizationCode;
 
                 UpdateOrganization.ExecuteNonQuery();
                 myCon.Close();
@@ -620,7 +688,7 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateRank(int RankID, string RankName, decimal RankSalary)
+        public bool UpdateRank(int RankID, string RankName, decimal RankSalary, string RankCode)
         {
             recordFound = false;
             myCon.Open();
@@ -633,6 +701,7 @@ namespace DataHelper
                 UpdateRank.Parameters.Add("RankID", MySqlDbType.Int32).Value = RankID;
                 UpdateRank.Parameters.Add("RankName", MySqlDbType.VarChar).Value = RankName;
                 UpdateRank.Parameters.Add("RankSalary", MySqlDbType.Decimal).Value = RankSalary;
+                UpdateRank.Parameters.Add("RankCode", MySqlDbType.VarChar).Value = RankCode;
 
                 UpdateRank.ExecuteNonQuery();
                 myCon.Close();
@@ -646,6 +715,141 @@ namespace DataHelper
             }
 
             return recordFound;
+        }
+
+        public decimal TotalSalaryCost()
+        {
+            myCon.Open();
+
+            decimal totalSalaryCost = 0;
+
+            MySqlDataAdapter da = new MySqlDataAdapter("DisplayPositionAccdgToOrganization", myCon);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("OrganizationID", MySqlDbType.Int32).Value = organizationID;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            foreach(DataRow dataRow in dt.Rows)
+            {
+                int posID = Convert.ToInt32(dataRow["position_id"].ToString());
+                int rankID = Convert.ToInt32(dataRow["rank_id"].ToString());
+
+                MySqlCommand daSalary = new MySqlCommand("GetCostForRank", myCon);
+                daSalary.CommandType = CommandType.StoredProcedure;
+                daSalary.Parameters.Add("PositionID", MySqlDbType.Int32).Value = posID;
+                daSalary.Parameters.Add("RankID", MySqlDbType.Int32).Value = rankID;
+
+                using(MySqlDataReader dr = daSalary.ExecuteReader())
+                {
+                    while(dr.Read())
+                    {
+                        totalSalaryCost += Convert.ToDecimal(dr["TotalCostOfRank"]);
+                        break;
+                    }
+                }
+            }
+            myCon.Close();
+            return totalSalaryCost;
+        }
+
+        public decimal TotalPersonalCost()
+        {
+            myCon.Open();
+
+            decimal totalPersonalCost = 0;
+
+            MySqlDataAdapter dispPos = new MySqlDataAdapter("DisplayPositionAccdgToOrganization", myCon);
+            dispPos.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dispPos.SelectCommand.Parameters.Add("OrganizationID", MySqlDbType.Int32).Value = organizationID;
+            DataTable dt = new DataTable();
+            dispPos.Fill(dt);
+
+            foreach(DataRow dataRow in dt.Rows)
+            {
+                int posID = Convert.ToInt32(dataRow["position_id"].ToString());
+
+                MySqlDataAdapter dispPer = new MySqlDataAdapter("DisplayPerEquipmentAccdgToPositions", myCon);
+                dispPer.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dispPer.SelectCommand.Parameters.Add("PositionID", MySqlDbType.Int32).Value = posID;
+                DataTable dtPer = new DataTable();
+                dispPer.Fill(dtPer);
+
+                foreach (DataRow perRow in dtPer.Rows)
+                {
+                    
+                    int equipID = Convert.ToInt32(perRow["equipment_id"].ToString()); 
+
+                    MySqlCommand getPerCost = new MySqlCommand("GetCostForPerEquip", myCon);
+                    getPerCost.CommandType = CommandType.StoredProcedure;
+                    getPerCost.Parameters.Add("PositionID", MySqlDbType.Int32).Value = posID;
+                    getPerCost.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = equipID;
+
+                    using(MySqlDataReader dr = getPerCost.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            totalPersonalCost += Convert.ToDecimal(dr["CostOfPerEquip"]);
+
+                            break;
+                        }
+                    }
+                }
+            }
+            myCon.Close();
+            return totalPersonalCost;
+        }
+
+        public decimal TotalPositionCost()
+        {
+            myCon.Open();
+
+            decimal totalPositionCost = 0;
+
+            MySqlDataAdapter dispPos = new MySqlDataAdapter("DisplayPositionAccdgToOrganization", myCon);
+            dispPos.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dispPos.SelectCommand.Parameters.Add("OrganizationID", MySqlDbType.Int32).Value = organizationID;
+            DataTable dt = new DataTable();
+            dispPos.Fill(dt);
+
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                int posID = Convert.ToInt32(dataRow["position_id"].ToString());
+
+                MySqlDataAdapter dispPer = new MySqlDataAdapter("DisplayPosEquipmentAccdgToPositions", myCon);
+                dispPer.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dispPer.SelectCommand.Parameters.Add("PositionID", MySqlDbType.Int32).Value = posID;
+                DataTable dtPer = new DataTable();
+                dispPer.Fill(dtPer);
+
+                foreach (DataRow perRow in dtPer.Rows)
+                {
+
+                    int equipID = Convert.ToInt32(perRow["equipment_id"].ToString());
+
+                    MySqlCommand getPerCost = new MySqlCommand("GetCostForPosEquip", myCon);
+                    getPerCost.CommandType = CommandType.StoredProcedure;
+                    getPerCost.Parameters.Add("PositionID", MySqlDbType.Int32).Value = posID;
+                    getPerCost.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = equipID;
+
+                    using (MySqlDataReader dr = getPerCost.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            totalPositionCost += Convert.ToDecimal(dr["CostOfPosEquip"]);
+
+                            break;
+                        }
+                    }
+                }
+            }
+            myCon.Close();
+            return totalPositionCost;
+        }
+
+        public decimal TotalEquipmentCost()
+        {
+            decimal totalEquipmentCost = TotalPositionCost() + TotalPersonalCost();
+            return totalEquipmentCost;
         }
     }
 }

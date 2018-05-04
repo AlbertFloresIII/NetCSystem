@@ -43,7 +43,8 @@ namespace NetCSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminEchelon adminEchelon = new AdminEchelon();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminEchelon adminEchelon = new AdminEchelon(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminEchelon.Show();
             this.Close();
         }
@@ -74,7 +75,8 @@ namespace NetCSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AdminPosition adminPosition = new AdminPosition();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminPosition adminPosition = new AdminPosition(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminPosition.Show();
             this.Close();
         }

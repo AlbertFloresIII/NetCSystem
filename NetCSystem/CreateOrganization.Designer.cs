@@ -43,12 +43,14 @@
             this.l = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtOrganizationCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Bernard MT Condensed", 21.75F, System.Drawing.FontStyle.Bold);
-            this.btnBack.Location = new System.Drawing.Point(273, 361);
+            this.btnBack.Location = new System.Drawing.Point(273, 378);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(242, 48);
             this.btnBack.TabIndex = 28;
@@ -59,7 +61,7 @@
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Bernard MT Condensed", 21.75F, System.Drawing.FontStyle.Bold);
-            this.btnCreate.Location = new System.Drawing.Point(273, 307);
+            this.btnCreate.Location = new System.Drawing.Point(273, 324);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(242, 48);
             this.btnCreate.TabIndex = 29;
@@ -70,7 +72,7 @@
             // txtNewOrgName
             // 
             this.txtNewOrgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtNewOrgName.Location = new System.Drawing.Point(273, 206);
+            this.txtNewOrgName.Location = new System.Drawing.Point(273, 187);
             this.txtNewOrgName.Name = "txtNewOrgName";
             this.txtNewOrgName.Size = new System.Drawing.Size(242, 31);
             this.txtNewOrgName.TabIndex = 26;
@@ -79,7 +81,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 206);
+            this.label3.Location = new System.Drawing.Point(46, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(221, 28);
             this.label3.TabIndex = 24;
@@ -99,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(164, 248);
+            this.label4.Location = new System.Drawing.Point(164, 229);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 28);
             this.label4.TabIndex = 24;
@@ -109,7 +111,7 @@
             // 
             this.cboOrgEchelon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOrgEchelon.FormattingEnabled = true;
-            this.cboOrgEchelon.Location = new System.Drawing.Point(273, 255);
+            this.cboOrgEchelon.Location = new System.Drawing.Point(273, 236);
             this.cboOrgEchelon.Name = "cboOrgEchelon";
             this.cboOrgEchelon.Size = new System.Drawing.Size(242, 21);
             this.cboOrgEchelon.TabIndex = 30;
@@ -182,6 +184,24 @@
             this.label8.TabIndex = 59;
             this.label8.Text = "Year ID:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 28);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "ORGANIZATION CODE:";
+            // 
+            // txtOrganizationCode
+            // 
+            this.txtOrganizationCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtOrganizationCode.Location = new System.Drawing.Point(273, 270);
+            this.txtOrganizationCode.Name = "txtOrganizationCode";
+            this.txtOrganizationCode.Size = new System.Drawing.Size(242, 31);
+            this.txtOrganizationCode.TabIndex = 26;
+            // 
             // CreateOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,8 +218,10 @@
             this.Controls.Add(this.cboOrgEchelon);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.txtOrganizationCode);
             this.Controls.Add(this.txtNewOrgName);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "CreateOrganization";
@@ -227,5 +249,7 @@
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtOrganizationCode;
     }
 }

@@ -50,7 +50,7 @@ namespace NetCSystem
         void DisplayRankName()
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
-            myRankName.DataSource = myData.DisplayRank(yearID).Tables["RankRecord"];
+            myRankName.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"];
             cboRankRequired.DataSource = myRankName;
             cboRankRequired.DisplayMember = "rank_name";
             cboRankRequired.ValueMember = "rank_id";
@@ -60,7 +60,7 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myPerEquipmentName.DataSource = myData.DisplayEquipment(yearID).Tables["EquipmentRecord"];
+            myPerEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"];
             cboPersonnelEquipment.DataSource = myPerEquipmentName;
             cboPersonnelEquipment.DisplayMember = "equipment_name";
             cboPersonnelEquipment.ValueMember = "equipment_id";
@@ -70,7 +70,7 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myPosEquipmentName.DataSource = myData.DisplayEquipment(yearID).Tables["EquipmentRecord"];
+            myPosEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"];
             cboPositionEquipment.DataSource = myPosEquipmentName;
             cboPositionEquipment.DisplayMember = "equipment_name";
             cboPositionEquipment.ValueMember = "equipment_id";
@@ -78,7 +78,8 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminPosition adminPosition = new AdminPosition();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminPosition adminPosition = new AdminPosition(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminPosition.Show();
             this.Close();
         }
@@ -217,9 +218,11 @@ namespace NetCSystem
                     myData.AddPositionEquipment(PosEquipID, PosEquipQty);
                 }
 
-                MessageBox.Show("Organization Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Position Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                AdminPosition adminPosition = new AdminPosition();
+                int statusID = Convert.ToInt32(lblStatusID.Text);
+
+                AdminPosition adminPosition = new AdminPosition(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
                 adminPosition.Show();
                 this.Close();
             }

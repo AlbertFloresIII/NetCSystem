@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnViewEquipment = new System.Windows.Forms.Button();
             this.btnManageEquipment = new System.Windows.Forms.Button();
             this.btnCreateEquipment = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -57,21 +55,11 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(472, 283);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 28);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "VIEW";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(265, 283);
+            this.label3.Location = new System.Drawing.Point(369, 288);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 28);
             this.label3.TabIndex = 32;
@@ -81,7 +69,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 283);
+            this.label2.Location = new System.Drawing.Point(174, 288);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 28);
             this.label2.TabIndex = 33;
@@ -97,17 +85,9 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "EQUIPMENTS";
             // 
-            // btnViewEquipment
-            // 
-            this.btnViewEquipment.Location = new System.Drawing.Point(445, 157);
-            this.btnViewEquipment.Name = "btnViewEquipment";
-            this.btnViewEquipment.Size = new System.Drawing.Size(132, 123);
-            this.btnViewEquipment.TabIndex = 28;
-            this.btnViewEquipment.UseVisualStyleBackColor = true;
-            // 
             // btnManageEquipment
             // 
-            this.btnManageEquipment.Location = new System.Drawing.Point(245, 157);
+            this.btnManageEquipment.Location = new System.Drawing.Point(349, 162);
             this.btnManageEquipment.Name = "btnManageEquipment";
             this.btnManageEquipment.Size = new System.Drawing.Size(132, 123);
             this.btnManageEquipment.TabIndex = 29;
@@ -116,7 +96,7 @@
             // 
             // btnCreateEquipment
             // 
-            this.btnCreateEquipment.Location = new System.Drawing.Point(48, 157);
+            this.btnCreateEquipment.Location = new System.Drawing.Point(152, 162);
             this.btnCreateEquipment.Name = "btnCreateEquipment";
             this.btnCreateEquipment.Size = new System.Drawing.Size(132, 123);
             this.btnCreateEquipment.TabIndex = 30;
@@ -205,11 +185,9 @@
             this.Controls.Add(this.lb);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnViewEquipment);
             this.Controls.Add(this.btnManageEquipment);
             this.Controls.Add(this.btnCreateEquipment);
             this.Name = "AdminEquipment";
@@ -223,11 +201,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnViewEquipment;
         private System.Windows.Forms.Button btnManageEquipment;
         private System.Windows.Forms.Button btnCreateEquipment;
         private System.Windows.Forms.Label lblStatus;

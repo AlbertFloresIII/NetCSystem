@@ -534,7 +534,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreatePosition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "t";
+            this.Text = "Create Position";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblPersonnelEquipment)).EndInit();

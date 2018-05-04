@@ -32,6 +32,7 @@
             this.EquipmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDeleteEquipment = new System.Windows.Forms.Button();
@@ -62,7 +63,8 @@
             this.tblEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EquipmentID,
             this.EquipmentName,
-            this.EquipmentCost});
+            this.EquipmentCost,
+            this.YearStart});
             this.tblEquipment.Location = new System.Drawing.Point(15, 129);
             this.tblEquipment.Name = "tblEquipment";
             this.tblEquipment.ReadOnly = true;
@@ -90,6 +92,13 @@
             this.EquipmentCost.HeaderText = "Equipment Cost";
             this.EquipmentCost.Name = "EquipmentCost";
             this.EquipmentCost.ReadOnly = true;
+            // 
+            // YearStart
+            // 
+            this.YearStart.DataPropertyName = "year_start";
+            this.YearStart.HeaderText = "Year";
+            this.YearStart.Name = "YearStart";
+            this.YearStart.ReadOnly = true;
             // 
             // label1
             // 
@@ -153,6 +162,7 @@
             // 
             // txtEquipmentID
             // 
+            this.txtEquipmentID.Enabled = false;
             this.txtEquipmentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.txtEquipmentID.Location = new System.Drawing.Point(159, 420);
             this.txtEquipmentID.Name = "txtEquipmentID";
@@ -303,9 +313,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentCost;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusID;
         private System.Windows.Forms.Label lblYear;
@@ -314,5 +321,9 @@
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
     }
 }

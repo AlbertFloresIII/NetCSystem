@@ -13,9 +13,15 @@ namespace NetCSystem
 {
     public partial class ManageEchelon : Form
     {
-        public ManageEchelon()
+        public ManageEchelon(string YearID, string Year, int StatusID, string Status)
         {
             InitializeComponent();
+
+            lblYearID.Text = YearID;
+            lblYear.Text = Year;
+            lblStatusID.Text = StatusID.ToString();
+            lblStatus.Text = Status;
+
             DisplayEchelon();
         }
 
@@ -32,14 +38,17 @@ namespace NetCSystem
         {
             txtEchelonID.Clear();
             txtEchelonName.Clear();
+            txtEchelonCode.Clear();
+
             if(e.RowIndex >= 0)
             {
                 //gets a collection that contains all rows
                 DataGridViewRow row = this.tblEchelon.Rows[e.RowIndex];
 
                 //populate the textbox
-                txtEchelonID.Text = row.Cells[0].Value.ToString();
-                txtEchelonName.Text = row.Cells[1].Value.ToString();
+                txtEchelonID.Text = row.Cells["EchelonID"].Value.ToString();
+                txtEchelonName.Text = row.Cells["EchelonName"].Value.ToString();
+                txtEchelonCode.Text = row.Cells["EchelonCode"].Value.ToString();
             }
         }
 
@@ -54,7 +63,7 @@ namespace NetCSystem
             {
                 int EchelonID = Convert.ToInt32(txtEchelonID.Text);
 
-                if (!myData.UpdateEchelon(EchelonID, txtEchelonName.Text))
+                if (!myData.UpdateEchelon(EchelonID, txtEchelonName.Text, txtEchelonCode.Text))
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
@@ -72,7 +81,8 @@ namespace NetCSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminEchelon adminEchelon = new AdminEchelon();
+            int statusID = Convert.ToInt32(lblStatusID.Text);
+            AdminEchelon adminEchelon = new AdminEchelon(lblYearID.Text, lblYear.Text, statusID, lblStatus.Text);
             adminEchelon.Show();
             this.Close();
         }
