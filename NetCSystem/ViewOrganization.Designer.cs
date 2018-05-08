@@ -48,14 +48,8 @@
             this.tblPositions = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tblPerEquipment = new System.Windows.Forms.DataGridView();
-            this.PerPosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerEquipQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tblPosEquipment = new System.Windows.Forms.DataGridView();
-            this.PosPosEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PosEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PosEquipQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblStatusID = new System.Windows.Forms.Label();
@@ -74,6 +68,15 @@
             this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonnelQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RankSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PerPosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PerEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PerEquipQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PosPosEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PosEquipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PosEquipQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipmentCostPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOrganization)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -254,7 +257,8 @@
             this.PositionID,
             this.PositionName,
             this.PersonnelQuantity,
-            this.Rank});
+            this.Rank,
+            this.RankSalary});
             this.tblPositions.Location = new System.Drawing.Point(6, 12);
             this.tblPositions.Name = "tblPositions";
             this.tblPositions.ReadOnly = true;
@@ -282,33 +286,13 @@
             this.tblPerEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PerPosID,
             this.PerEquipID,
-            this.PerEquipQty});
+            this.PerEquipQty,
+            this.EquipmentCost});
             this.tblPerEquipment.Location = new System.Drawing.Point(6, 12);
             this.tblPerEquipment.Name = "tblPerEquipment";
             this.tblPerEquipment.ReadOnly = true;
             this.tblPerEquipment.Size = new System.Drawing.Size(338, 150);
             this.tblPerEquipment.TabIndex = 0;
-            // 
-            // PerPosID
-            // 
-            this.PerPosID.DataPropertyName = "position_name";
-            this.PerPosID.HeaderText = "Position Name";
-            this.PerPosID.Name = "PerPosID";
-            this.PerPosID.ReadOnly = true;
-            // 
-            // PerEquipID
-            // 
-            this.PerEquipID.DataPropertyName = "equipment_name";
-            this.PerEquipID.HeaderText = "Equipment Name";
-            this.PerEquipID.Name = "PerEquipID";
-            this.PerEquipID.ReadOnly = true;
-            // 
-            // PerEquipQty
-            // 
-            this.PerEquipQty.DataPropertyName = "equipment_qty";
-            this.PerEquipQty.HeaderText = "Equipment Quantity";
-            this.PerEquipQty.Name = "PerEquipQty";
-            this.PerEquipQty.ReadOnly = true;
             // 
             // groupBox5
             // 
@@ -329,33 +313,13 @@
             this.tblPosEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PosPosEquipID,
             this.PosEquipID,
-            this.PosEquipQty});
+            this.PosEquipQty,
+            this.EquipmentCostPos});
             this.tblPosEquipment.Location = new System.Drawing.Point(6, 12);
             this.tblPosEquipment.Name = "tblPosEquipment";
             this.tblPosEquipment.ReadOnly = true;
             this.tblPosEquipment.Size = new System.Drawing.Size(338, 150);
             this.tblPosEquipment.TabIndex = 0;
-            // 
-            // PosPosEquipID
-            // 
-            this.PosPosEquipID.DataPropertyName = "position_name";
-            this.PosPosEquipID.HeaderText = "Position Name";
-            this.PosPosEquipID.Name = "PosPosEquipID";
-            this.PosPosEquipID.ReadOnly = true;
-            // 
-            // PosEquipID
-            // 
-            this.PosEquipID.DataPropertyName = "equipment_name";
-            this.PosEquipID.HeaderText = "Equipment Name";
-            this.PosEquipID.Name = "PosEquipID";
-            this.PosEquipID.ReadOnly = true;
-            // 
-            // PosEquipQty
-            // 
-            this.PosEquipQty.DataPropertyName = "equipment_qty";
-            this.PosEquipQty.HeaderText = "Equipment Quantity";
-            this.PosEquipQty.Name = "PosEquipQty";
-            this.PosEquipQty.ReadOnly = true;
             // 
             // txtResult
             // 
@@ -503,6 +467,69 @@
             this.Rank.Name = "Rank";
             this.Rank.ReadOnly = true;
             // 
+            // RankSalary
+            // 
+            this.RankSalary.DataPropertyName = "rank_salary";
+            this.RankSalary.HeaderText = "Salary";
+            this.RankSalary.Name = "RankSalary";
+            this.RankSalary.ReadOnly = true;
+            // 
+            // PerPosID
+            // 
+            this.PerPosID.DataPropertyName = "position_name";
+            this.PerPosID.HeaderText = "Position Name";
+            this.PerPosID.Name = "PerPosID";
+            this.PerPosID.ReadOnly = true;
+            // 
+            // PerEquipID
+            // 
+            this.PerEquipID.DataPropertyName = "equipment_name";
+            this.PerEquipID.HeaderText = "Equipment Name";
+            this.PerEquipID.Name = "PerEquipID";
+            this.PerEquipID.ReadOnly = true;
+            // 
+            // PerEquipQty
+            // 
+            this.PerEquipQty.DataPropertyName = "equipment_qty";
+            this.PerEquipQty.HeaderText = "Equipment Quantity";
+            this.PerEquipQty.Name = "PerEquipQty";
+            this.PerEquipQty.ReadOnly = true;
+            // 
+            // EquipmentCost
+            // 
+            this.EquipmentCost.DataPropertyName = "equipment_cost";
+            this.EquipmentCost.HeaderText = "Equipment Cost";
+            this.EquipmentCost.Name = "EquipmentCost";
+            this.EquipmentCost.ReadOnly = true;
+            // 
+            // PosPosEquipID
+            // 
+            this.PosPosEquipID.DataPropertyName = "position_name";
+            this.PosPosEquipID.HeaderText = "Position Name";
+            this.PosPosEquipID.Name = "PosPosEquipID";
+            this.PosPosEquipID.ReadOnly = true;
+            // 
+            // PosEquipID
+            // 
+            this.PosEquipID.DataPropertyName = "equipment_name";
+            this.PosEquipID.HeaderText = "Equipment Name";
+            this.PosEquipID.Name = "PosEquipID";
+            this.PosEquipID.ReadOnly = true;
+            // 
+            // PosEquipQty
+            // 
+            this.PosEquipQty.DataPropertyName = "equipment_qty";
+            this.PosEquipQty.HeaderText = "Equipment Quantity";
+            this.PosEquipQty.Name = "PosEquipQty";
+            this.PosEquipQty.ReadOnly = true;
+            // 
+            // EquipmentCostPos
+            // 
+            this.EquipmentCostPos.DataPropertyName = "equipment_cost";
+            this.EquipmentCostPos.HeaderText = "Equipment Cost";
+            this.EquipmentCostPos.Name = "EquipmentCostPos";
+            this.EquipmentCostPos.ReadOnly = true;
+            // 
             // ViewOrganization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,12 +604,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerPosID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosPosEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipQty;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addChildToolStripMenuItem;
@@ -592,5 +613,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonnelQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RankSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerPosID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerEquipQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosPosEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PosEquipQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipmentCostPos;
     }
 }

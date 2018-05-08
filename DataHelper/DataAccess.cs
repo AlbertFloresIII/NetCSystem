@@ -181,7 +181,6 @@ namespace DataHelper
         //Add Echelon
         public void AddEchelon(string EchelonName, string EchelonCode)
         {
-            //recordFound = false;
             myCon.Open();
 
            MySqlCommand SaveEchelon = new MySqlCommand("AddEchelon", myCon);
@@ -850,6 +849,12 @@ namespace DataHelper
         {
             decimal totalEquipmentCost = TotalPositionCost() + TotalPersonalCost();
             return totalEquipmentCost;
+        }
+
+        public decimal TotalOrgCost()
+        {
+            decimal totalOrgCost = TotalEquipmentCost() + TotalSalaryCost();
+            return totalOrgCost;
         }
     }
 }

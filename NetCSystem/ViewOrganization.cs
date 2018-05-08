@@ -104,7 +104,8 @@ namespace NetCSystem
                                  "\nTotal Personal Equipment Cost: " + myData.TotalPersonalCost() +
                                  "\nTotal Position Equipment Cost: " + myData.TotalPositionCost() +
                                  "\nTotal Equipment Cost: " + myData.TotalEquipmentCost() +
-                                 "\nTotal Salary Cost: " + myData.TotalSalaryCost();
+                                 "\nTotal Salary Cost: " + myData.TotalSalaryCost() +
+                                 "\nTotal Organization Cost: " + myData.TotalOrgCost();
             }
         }
 
