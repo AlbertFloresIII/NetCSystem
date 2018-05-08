@@ -43,10 +43,13 @@ namespace NetCSystem
             DataView OrgView = new DataView();
 
             OrgView.Table = myData.DisplayOrganizationTree(OrganizationID).Tables["Organizationrecord"];
+            myData.OrganizationID(OrganizationID);
             tblChildOrg.DataSource = OrgView;
 
             tblChildOrg.Columns.Remove("year_start");
             tblChildOrg.Columns.Remove("year_end");
+
+            txtResult.Text = "Total Tree Pos Cost: " + myData.totalTreePosCost();
         }
 
         private void tblParentOrg_CellClick(object sender, DataGridViewCellEventArgs e)

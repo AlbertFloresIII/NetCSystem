@@ -57,6 +57,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblParentOrg)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -82,14 +83,14 @@
             this.groupBox1.Controls.Add(this.tblParentOrg);
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 561);
+            this.groupBox1.Size = new System.Drawing.Size(510, 366);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Organization";
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(404, 522);
+            this.btnBack.Location = new System.Drawing.Point(404, 337);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 23);
             this.btnBack.TabIndex = 3;
@@ -99,7 +100,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(6, 522);
+            this.btnView.Location = new System.Drawing.Point(6, 337);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(100, 23);
             this.btnView.TabIndex = 3;
@@ -110,7 +111,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 480);
+            this.label2.Location = new System.Drawing.Point(6, 295);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 2;
@@ -119,13 +120,14 @@
             // txtOrganizationID
             // 
             this.txtOrganizationID.Enabled = false;
-            this.txtOrganizationID.Location = new System.Drawing.Point(6, 496);
+            this.txtOrganizationID.Location = new System.Drawing.Point(6, 311);
             this.txtOrganizationID.Name = "txtOrganizationID";
             this.txtOrganizationID.Size = new System.Drawing.Size(100, 20);
             this.txtOrganizationID.TabIndex = 1;
             // 
             // tblParentOrg
             // 
+            this.tblParentOrg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tblParentOrg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblParentOrg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrganizationID,
@@ -138,7 +140,7 @@
             this.tblParentOrg.Location = new System.Drawing.Point(0, 19);
             this.tblParentOrg.Name = "tblParentOrg";
             this.tblParentOrg.ReadOnly = true;
-            this.tblParentOrg.Size = new System.Drawing.Size(504, 444);
+            this.tblParentOrg.Size = new System.Drawing.Size(504, 273);
             this.tblParentOrg.TabIndex = 0;
             this.tblParentOrg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblParentOrg_CellClick);
             // 
@@ -147,42 +149,49 @@
             this.OrganizationID.DataPropertyName = "organization_id";
             this.OrganizationID.HeaderText = "Organization ID";
             this.OrganizationID.Name = "OrganizationID";
+            this.OrganizationID.ReadOnly = true;
             // 
             // OrganizationName
             // 
             this.OrganizationName.DataPropertyName = "organization_name";
             this.OrganizationName.HeaderText = "Organization Name";
             this.OrganizationName.Name = "OrganizationName";
+            this.OrganizationName.ReadOnly = true;
             // 
             // OrganizationCode
             // 
             this.OrganizationCode.DataPropertyName = "organization_code";
             this.OrganizationCode.HeaderText = "Organization Code";
             this.OrganizationCode.Name = "OrganizationCode";
+            this.OrganizationCode.ReadOnly = true;
             // 
             // EchelonName
             // 
             this.EchelonName.DataPropertyName = "echelon_name";
             this.EchelonName.HeaderText = "Echelon";
             this.EchelonName.Name = "EchelonName";
+            this.EchelonName.ReadOnly = true;
             // 
             // Status
             // 
             this.Status.DataPropertyName = "status_desc";
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // YearStart
             // 
             this.YearStart.DataPropertyName = "year_start";
             this.YearStart.HeaderText = "Start";
             this.YearStart.Name = "YearStart";
+            this.YearStart.ReadOnly = true;
             // 
             // YearEnd
             // 
             this.YearEnd.DataPropertyName = "year_end";
             this.YearEnd.HeaderText = "End";
             this.YearEnd.Name = "YearEnd";
+            this.YearEnd.ReadOnly = true;
             // 
             // lblStatus
             // 
@@ -257,9 +266,10 @@
             this.groupBox2.Controls.Add(this.tblChildOrg);
             this.groupBox2.Location = new System.Drawing.Point(528, 155);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(467, 561);
+            this.groupBox2.Size = new System.Drawing.Size(467, 308);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Child";
             // 
             // tblChildOrg
             // 
@@ -274,7 +284,7 @@
             this.tblChildOrg.Location = new System.Drawing.Point(6, 19);
             this.tblChildOrg.Name = "tblChildOrg";
             this.tblChildOrg.ReadOnly = true;
-            this.tblChildOrg.Size = new System.Drawing.Size(455, 444);
+            this.tblChildOrg.Size = new System.Drawing.Size(455, 273);
             this.tblChildOrg.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -282,36 +292,50 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "organization_id";
             this.dataGridViewTextBoxColumn1.HeaderText = "Organization ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "organization_name";
             this.dataGridViewTextBoxColumn2.HeaderText = "Organization Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "organization_code";
             this.dataGridViewTextBoxColumn3.HeaderText = "Organization Code";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "echelon_name";
             this.dataGridViewTextBoxColumn4.HeaderText = "Echelon";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // StatusName
             // 
             this.StatusName.DataPropertyName = "status_desc";
             this.StatusName.HeaderText = "Status";
             this.StatusName.Name = "StatusName";
+            this.StatusName.ReadOnly = true;
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(528, 469);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(467, 247);
+            this.txtResult.TabIndex = 68;
+            this.txtResult.Text = "";
             // 
             // DisplayOrganizationTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 728);
+            this.Controls.Add(this.txtResult);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStatusID);
             this.Controls.Add(this.lblYear);
@@ -366,5 +390,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusName;
+        private System.Windows.Forms.RichTextBox txtResult;
     }
 }

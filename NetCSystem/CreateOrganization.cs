@@ -61,7 +61,7 @@ namespace NetCSystem
 
                 MessageBox.Show("Organization Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Admin admin = new Admin(lblYearID.Text, lblYear.Text, StatusID);
+                AdminOrganization admin = new AdminOrganization(lblYearID.Text, lblYear.Text, StatusID, lblStatus.Text);
                 admin.Show();
                 this.Close();
             }

@@ -68,12 +68,19 @@ namespace NetCSystem
             int status_id = Convert.ToInt32(lblStatusID.Text);
             int year_id = Convert.ToInt32(lblYearID.Text);
 
-            myData.AddChild(ancestor, descendant, status_id, year_id);
-            MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(!myData.AddChild(ancestor, descendant, status_id, year_id, ancestor, descendant))
+            {
+                MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            ViewOrganization viewOrganization = new ViewOrganization(lblYearID.Text, lblYear.Text, status_id, lblStatus.Text);
-            viewOrganization.Show();
-            this.Close();
+                cboParentOrg.SelectedValue = 1;
+                cboChildOrg.SelectedValue = 1;
+            }
+
+            else
+            {
+                MessageBox.Show("Already been added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }

@@ -75,6 +75,7 @@ namespace NetCSystem
         {
             txtEchelonID.Text = "";
             txtEchelonName.Text = "";
+            txtEchelonCode.Text = "";
 
             DisplayEchelon();
         }

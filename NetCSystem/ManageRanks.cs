@@ -97,6 +97,7 @@ namespace NetCSystem
             txtRankID.Text = "";
             txtRankName.Text = "";
             txtRankSalary.Text = "";
+            txtRankCode.Text = "";
 
             DisplayRank();
         }

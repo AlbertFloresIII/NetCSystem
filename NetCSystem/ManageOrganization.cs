@@ -78,6 +78,7 @@ namespace NetCSystem
         {
             txtOrganizationID.Text = "";
             txtOrganizationName.Text = "";
+            txtOrganizationCode.Text = "";
 
             DisplayOrganization();
             DisplayEchelon();
