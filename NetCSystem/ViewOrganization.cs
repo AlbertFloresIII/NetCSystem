@@ -100,7 +100,8 @@ namespace NetCSystem
 
                 tblPositions.Columns.Remove("rank_id");
 
-                txtResult.Text = "Number of Positions: " + myData.TotalPosition +
+                txtResult.Text = "Organization: " + txtOrgName.Text +
+                                 "\nNumber of Positions: " + myData.TotalPosition +
                                  "\nTotal Personal Equipment Cost: " + myData.TotalPersonalCost() +
                                  "\nTotal Position Equipment Cost: " + myData.TotalPositionCost() +
                                  "\nTotal Equipment Cost: " + myData.TotalEquipmentCost() +
