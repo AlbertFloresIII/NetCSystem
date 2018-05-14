@@ -121,7 +121,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 34);
             this.label1.TabIndex = 68;
-            this.label1.Text = "CREATE HEIRARCHY";
+            this.label1.Text = "CREATE HIERARCHY";
             // 
             // label2
             // 

@@ -44,12 +44,20 @@ namespace NetCSystem
 
             OrgView.Table = myData.DisplayOrganizationTree(OrganizationID).Tables["Organizationrecord"];
             myData.OrganizationID(OrganizationID);
+            myData.OrganizationID(OrganizationID);
             tblChildOrg.DataSource = OrgView;
 
-            tblChildOrg.Columns.Remove("year_start");
-            tblChildOrg.Columns.Remove("year_end");
+            tblChildOrg.Columns.Remove("echelon_id");
+            tblChildOrg.Columns.Remove("status_id");
+            tblChildOrg.Columns.Remove("year_id");
+            tblChildOrg.Columns.Remove("parent_id");
 
-            txtResult.Text = "Total Tree Pos Cost: " + myData.totalTreePosCost();
+            txtResult.Text = "Organization Name: " + txtOrgName.Text +
+                             "\nTotal Position Equipment Cost: " + myData.TotalPositionEquipmentCost() +
+                             "\nTotal Personal Equipment Cost: " + myData.TotalPersonalEquipmentCost() +
+                             "\nTotal Equipment Cost: " + myData.TotalEquipmentCost() +
+                             "\nTotal Salary Cost: " + myData.TotalSalaryCost() +
+                             "\nTotal Cost: " + myData.TotalOrgCost();
         }
 
         private void tblParentOrg_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +71,7 @@ namespace NetCSystem
 
                 //populate the textbox
                 txtOrganizationID.Text = row.Cells[0].Value.ToString();
+                txtOrgName.Text = row.Cells[1].Value.ToString();
             }
 
             else

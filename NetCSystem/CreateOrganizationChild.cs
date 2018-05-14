@@ -63,12 +63,10 @@ namespace NetCSystem
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            int ancestor = (int) cboParentOrg.SelectedValue;
-            int descendant = (int)cboChildOrg.SelectedValue;
-            int status_id = Convert.ToInt32(lblStatusID.Text);
-            int year_id = Convert.ToInt32(lblYearID.Text);
+            int parentID = (int) cboParentOrg.SelectedValue;
+            int childID = (int)cboChildOrg.SelectedValue;
 
-            if(!myData.AddChild(ancestor, descendant, status_id, year_id, ancestor, descendant))
+            if(!myData.AddChild(parentID, childID))
             {
                 MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -40,8 +40,6 @@
             this.OrganizationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EchelonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblStatusID = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
@@ -55,9 +53,9 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResult = new System.Windows.Forms.RichTextBox();
+            this.txtOrgName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblParentOrg)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,7 +76,9 @@
             // 
             this.groupBox1.Controls.Add(this.btnBack);
             this.groupBox1.Controls.Add(this.btnView);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtOrgName);
             this.groupBox1.Controls.Add(this.txtOrganizationID);
             this.groupBox1.Controls.Add(this.tblParentOrg);
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
@@ -134,9 +134,7 @@
             this.OrganizationName,
             this.OrganizationCode,
             this.EchelonName,
-            this.Status,
-            this.YearStart,
-            this.YearEnd});
+            this.Status});
             this.tblParentOrg.Location = new System.Drawing.Point(0, 19);
             this.tblParentOrg.Name = "tblParentOrg";
             this.tblParentOrg.ReadOnly = true;
@@ -178,20 +176,6 @@
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            // 
-            // YearStart
-            // 
-            this.YearStart.DataPropertyName = "year_start";
-            this.YearStart.HeaderText = "Start";
-            this.YearStart.Name = "YearStart";
-            this.YearStart.ReadOnly = true;
-            // 
-            // YearEnd
-            // 
-            this.YearEnd.DataPropertyName = "year_end";
-            this.YearEnd.HeaderText = "End";
-            this.YearEnd.Name = "YearEnd";
-            this.YearEnd.ReadOnly = true;
             // 
             // lblStatus
             // 
@@ -278,9 +262,7 @@
             this.tblChildOrg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.StatusName});
+            this.dataGridViewTextBoxColumn3});
             this.tblChildOrg.Location = new System.Drawing.Point(6, 19);
             this.tblChildOrg.Name = "tblChildOrg";
             this.tblChildOrg.ReadOnly = true;
@@ -308,27 +290,31 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "echelon_name";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Echelon";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // StatusName
-            // 
-            this.StatusName.DataPropertyName = "status_desc";
-            this.StatusName.HeaderText = "Status";
-            this.StatusName.Name = "StatusName";
-            this.StatusName.ReadOnly = true;
-            // 
             // txtResult
             // 
+            this.txtResult.Enabled = false;
             this.txtResult.Location = new System.Drawing.Point(528, 469);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(467, 247);
             this.txtResult.TabIndex = 68;
             this.txtResult.Text = "";
+            // 
+            // txtOrgName
+            // 
+            this.txtOrgName.Enabled = false;
+            this.txtOrgName.Location = new System.Drawing.Point(112, 311);
+            this.txtOrgName.Name = "txtOrgName";
+            this.txtOrgName.Size = new System.Drawing.Size(100, 20);
+            this.txtOrgName.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(112, 295);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Organization Name:";
             // 
             // DisplayOrganizationTree
             // 
@@ -377,19 +363,17 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DataGridView tblChildOrg;
+        private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationID;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn EchelonName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearEnd;
-        private System.Windows.Forms.DataGridView tblChildOrg;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusName;
-        private System.Windows.Forms.RichTextBox txtResult;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtOrgName;
     }
 }
