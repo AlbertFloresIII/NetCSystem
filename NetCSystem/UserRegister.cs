@@ -41,8 +41,8 @@ namespace NetCSystem
                 }
                 else
                 {
-                        if(!myData.AddUser(txtNewUsername.Text, txtNewPassword.Text))
-                        {
+                        if(!myData.AddUser(txtNewUsername.Text, txtNewPassword.Text)) //Parameters to pass to DataAccess class
+                    {
                             MessageBox.Show("Registered!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Login login = new Login();
                             login.Show();

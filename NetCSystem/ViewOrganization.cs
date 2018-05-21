@@ -36,7 +36,7 @@ namespace NetCSystem
         {
             int statusID = Convert.ToInt32(lblStatusID.Text);
             int yearID = Convert.ToInt32(lblYearID.Text);
-            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"];
+            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"]; //Parameters to pass to DataAccess class
             tblOrganization.DataSource = myOrganizationTable;
         }
 
@@ -92,14 +92,15 @@ namespace NetCSystem
 
                 DataView posView = new DataView();
 
-                posView.Table = myData.DisplayPositionAccdgToOrganization(OrganizationID).Tables["PositionRecord"];
+                posView.Table = myData.DisplayPositionAccdgToOrganization(OrganizationID).Tables["PositionRecord"]; //Parameters to pass to DataAccess class
                 tblPositions.DataSource = posView;
 
-                myData.OrganizationID(OrganizationID);
-                myData.CountPosition(OrganizationID);
+                myData.OrganizationID(OrganizationID); //Parameters to pass to DataAccess class
+                myData.CountPosition(OrganizationID); //Parameters to pass to DataAccess class
 
-                tblPositions.Columns.Remove("rank_id");
+                tblPositions.Columns.Remove("rank_id"); //Removes unnecessary column
 
+                //Shows output
                 txtResult.Text = "Organization: " + txtOrgName.Text +
                                  "\nNumber of Positions: " + myData.TotalPosition +
                                  "\nTotal Personal Equipment Cost: " + myData.TotalPersonalCost() +
@@ -126,8 +127,8 @@ namespace NetCSystem
 
                 int posID = (int)row.Cells[0].Value;
 
-                perEquipView.Table = myData.DisplayPerEquipmentAccdgToPositions(posID).Tables["PerEquipRecord"];
-                posEquipView.Table = myData.DisplayPosEquipmentAccdgToPositions(posID).Tables["PosEquipRecord"];
+                perEquipView.Table = myData.DisplayPerEquipmentAccdgToPositions(posID).Tables["PerEquipRecord"]; //Parameters to pass to DataAccess class
+                posEquipView.Table = myData.DisplayPosEquipmentAccdgToPositions(posID).Tables["PosEquipRecord"]; //Parameters to pass to DataAccess class
 
                 tblPerEquipment.DataSource = perEquipView;
                 tblPosEquipment.DataSource = posEquipView;

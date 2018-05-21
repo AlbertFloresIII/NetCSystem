@@ -39,7 +39,7 @@ namespace NetCSystem
                 int YearStart = Convert.ToInt32(txtStartYear.Text);
                 int YearEnd = Convert.ToInt32(txtEndYear.Text);
 
-                myData.AddYear(YearStart, YearEnd);
+                myData.AddYear(YearStart, YearEnd); //Parameters to pass to DataAccess class
 
                 MessageBox.Show("Year Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

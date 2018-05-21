@@ -32,7 +32,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtOrgName = new System.Windows.Forms.TextBox();
             this.txtOrganizationID = new System.Windows.Forms.TextBox();
             this.tblParentOrg = new System.Windows.Forms.DataGridView();
             this.OrganizationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +56,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResult = new System.Windows.Forms.RichTextBox();
-            this.txtOrgName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblParentOrg)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -108,6 +108,15 @@
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(112, 295);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Organization Name:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -116,6 +125,14 @@
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Organization ID:";
+            // 
+            // txtOrgName
+            // 
+            this.txtOrgName.Enabled = false;
+            this.txtOrgName.Location = new System.Drawing.Point(112, 311);
+            this.txtOrgName.Name = "txtOrgName";
+            this.txtOrgName.Size = new System.Drawing.Size(100, 20);
+            this.txtOrgName.TabIndex = 1;
             // 
             // txtOrganizationID
             // 
@@ -299,23 +316,6 @@
             this.txtResult.TabIndex = 68;
             this.txtResult.Text = "";
             // 
-            // txtOrgName
-            // 
-            this.txtOrgName.Enabled = false;
-            this.txtOrgName.Location = new System.Drawing.Point(112, 311);
-            this.txtOrgName.Name = "txtOrgName";
-            this.txtOrgName.Size = new System.Drawing.Size(100, 20);
-            this.txtOrgName.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Organization Name:";
-            // 
             // DisplayOrganizationTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +334,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "DisplayOrganizationTree";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Display Organization";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

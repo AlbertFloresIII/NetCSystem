@@ -30,7 +30,7 @@ namespace NetCSystem
 
         void DisplayEchelon()
         {
-            myEchelonTable.DataSource = myData.DisplayEchelon().Tables["EchelonRecord"];
+            myEchelonTable.DataSource = myData.DisplayEchelon().Tables["EchelonRecord"]; //Parameters to pass to DataAccess class
             tblEchelon.DataSource = myEchelonTable;
         }
 
@@ -63,7 +63,7 @@ namespace NetCSystem
             {
                 int EchelonID = Convert.ToInt32(txtEchelonID.Text);
 
-                if (!myData.UpdateEchelon(EchelonID, txtEchelonName.Text, txtEchelonCode.Text))
+                if (!myData.UpdateEchelon(EchelonID, txtEchelonName.Text, txtEchelonCode.Text)) //Parameters to pass to DataAccess class
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
@@ -98,7 +98,7 @@ namespace NetCSystem
             else
             {
                 int EchelonID = Convert.ToInt32(txtEchelonID.Text);
-                myData.DeleteEchelon(EchelonID);
+                myData.DeleteEchelon(EchelonID); //Parameters to pass to DataAccess class
                 MessageBox.Show("Deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
             }

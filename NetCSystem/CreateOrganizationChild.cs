@@ -66,9 +66,9 @@ namespace NetCSystem
             int parentID = (int) cboParentOrg.SelectedValue;
             int childID = (int)cboChildOrg.SelectedValue;
 
-            if(!myData.AddChild(parentID, childID))
+            if(!myData.AddChild(parentID, childID)) //Parameters to pass to DataAccess class
             {
-                MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Hierarchy Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 cboParentOrg.SelectedValue = 1;
                 cboChildOrg.SelectedValue = 1;

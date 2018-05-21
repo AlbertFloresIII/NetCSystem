@@ -36,7 +36,7 @@ namespace NetCSystem
 
             else
             {
-                if (myData.LocateAccount(txtUsername.Text, txtPassword.Text))
+                if (myData.LocateAccount(txtUsername.Text, txtPassword.Text)) //Parameters to pass to DataAccess class
                 {
                     Year year = new Year();
                     year.Show();

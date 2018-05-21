@@ -36,13 +36,13 @@ namespace NetCSystem
             int statusID = Convert.ToInt32(lblStatusID.Text);
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"];
+            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"]; //Parameters to pass to DataAccess class
             tblOrganization.DataSource = myOrganizationTable;
         }
 
         void DisplayEchelon()
         {
-            myEchelonName.DataSource = myData.DisplayEchelon().Tables["EchelonRecord"];
+            myEchelonName.DataSource = myData.DisplayEchelon().Tables["EchelonRecord"]; //Parameters to pass to DataAccess class
             cboEchelonName.DataSource = myEchelonName;
             cboEchelonName.DisplayMember = "echelon_Name";
             cboEchelonName.ValueMember = "echelon_ID";
@@ -96,7 +96,7 @@ namespace NetCSystem
                 int OrganzationID = Convert.ToInt32(txtOrganizationID.Text);
                 int OrganizationEchelon = (int)cboEchelonName.SelectedValue;
 
-                if (!myData.UpdateOrganization(OrganzationID, txtOrganizationName.Text, OrganizationEchelon, txtOrganizationCode.Text))
+                if (!myData.UpdateOrganization(OrganzationID, txtOrganizationName.Text, OrganizationEchelon, txtOrganizationCode.Text)) //Parameters to pass to DataAccess class
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
@@ -114,7 +114,7 @@ namespace NetCSystem
             else
             {
                 int OrganzationID = Convert.ToInt32(txtOrganizationID.Text);
-                myData.DeleteOrganization(OrganzationID);
+                myData.DeleteOrganization(OrganzationID); //Parameters to pass to DataAccess class
                 MessageBox.Show("Deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
             }

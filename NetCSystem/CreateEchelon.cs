@@ -44,7 +44,7 @@ namespace NetCSystem
             {
                 int statusID = Convert.ToInt32(lblStatusID.Text);
 
-                myData.AddEchelon(txtNewEchelonName.Text, txtEchelonCode.Text);
+                myData.AddEchelon(txtNewEchelonName.Text, txtEchelonCode.Text); //Parameters to be pass to DataAccess class
                 
                 MessageBox.Show("Echelon Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

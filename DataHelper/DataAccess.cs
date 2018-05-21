@@ -9,6 +9,13 @@ using MySql.Data.MySqlClient;
 
 namespace DataHelper
 {
+    /* 
+                 Data Class Library
+     * All transactions to Database goes through here
+     * All computations are computed here
+     * All Database queries are in Stored Procedure
+     */
+
     public class DataAccess
     {
         bool recordFound;
@@ -16,9 +23,13 @@ namespace DataHelper
         decimal equipmentCost;
         int organizationID, totalPosition, perEquipmentQty, posEquipmentQty;
 
+        //Connection String to MySql localhost
         static string con = @"server=localhost;user id=root;pwd=root;persistsecurityinfo=True;database=netcsys;SslMode=none";
         MySqlConnection myCon = new MySqlConnection(con);
 
+        /*
+         Data from this class can be transferred to other class by encapsulation
+         */
         public string StatusName
         {
             get { return statusName; }
@@ -54,8 +65,8 @@ namespace DataHelper
             this.organizationID = organizationID;
         }
 
-        //Add Equipment
-        public void AddEquipment(string EquipmentName, decimal EquipmentCost, int YearID)
+        //Insert Equipment to Database
+        public void AddEquipment(string EquipmentName, decimal EquipmentCost, int YearID) //Needed parameters in the Stored Procedure from Create Equipment from
         {
             myCon.Open();
             MySqlCommand SaveEquipment = new MySqlCommand("AddEquipment", myCon);
@@ -69,8 +80,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Add Rank
-        public void AddRank(string RankName, decimal RankSalary, int YearID, string RankCode)
+        //Insert Rank to Database
+        public void AddRank(string RankName, decimal RankSalary, int YearID, string RankCode) //Needed parameters in the Stored Procedure from Create Rank from
         {
 
             myCon.Open();
@@ -86,8 +97,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //AddChild
-        public bool AddChild(int ParentID, int ChildID)
+        //Insert and Update Hierarchy to Databse
+        public bool AddChild(int ParentID, int ChildID) //Needed parameters in the Stored Procedure from Create Organization Child form
         {
             myCon.Open();
             recordFound = false;
@@ -111,7 +122,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public void AddYear(int YearStart, int YearEnd)
+        //Insert Year to Database
+        public void AddYear(int YearStart, int YearEnd) //Needed parameters in the Stored Procedure from Create Year form
         {
             myCon.Open();
             MySqlCommand SaveYear = new MySqlCommand("AddYear", myCon);
@@ -124,8 +136,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Add User
-        public bool AddUser(string UserName, string UserPassword)
+        //Insert User to Database
+        public bool AddUser(string UserName, string UserPassword) //Needed parameters in the Stored Procedure from User Register form
         {
             recordFound = false;
             myCon.Open();
@@ -151,8 +163,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        //Add Echelon
-        public void AddEchelon(string EchelonName, string EchelonCode)
+        //Insert Echelon to Database
+        public void AddEchelon(string EchelonName, string EchelonCode) //Needed parameters in the Stored Procedure from Create Echelon
         {
             myCon.Open();
 
@@ -166,8 +178,8 @@ namespace DataHelper
            myCon.Close();
         }
 
-        //Add Organization
-        public void AddOrganization(string OrganizationName, int OrganizationEchelon, int OrganizationStatus, int YearID, string OrganizationCode)
+        //Insert Organization to Database
+        public void AddOrganization(string OrganizationName, int OrganizationEchelon, int OrganizationStatus, int YearID, string OrganizationCode) //Needed parameters in the Stored Procedure from Create Organization form
         {
             myCon.Open();
 
@@ -184,8 +196,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Add Position
-        public void AddPosition(string PositionName, int PersonnelQuantity, int RankID, int OrganizationID)
+        //Insert Position to Database
+        public void AddPosition(string PositionName, int PersonnelQuantity, int RankID, int OrganizationID) //Needed parameters in the Stored Procedure from Create Position form
         {
             myCon.Open();
 
@@ -201,8 +213,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Add Equipment for Position
-        public void AddPositionEquipment(int EquipmentID,int EquipmentQuantity)
+        //Insert Position Equipment to Database
+        public void AddPositionEquipment(int EquipmentID,int EquipmentQuantity) //Needed parameters in the Stored Procedure from Create Position Form
         {
             myCon.Open();
 
@@ -216,8 +228,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Add Equipment for Personnel
-        public void AddPersonalEquipment(int EquipmentID, int EquipmentQuantity)
+        //Insert Personal Equipment to Database
+        public void AddPersonalEquipment(int EquipmentID, int EquipmentQuantity) //Needed parameters in the Stored Procedure from Create Position Form
         {
             myCon.Open();
 
@@ -231,7 +243,7 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Count Position
+        //Get number of Position per Organization
         public bool CountPosition(int OrganizationID)
         {
             recordFound = false;
@@ -257,8 +269,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        //Delete Echelon
-        public void DeleteEchelon(int EchelonID)
+        //Delete Echelon from Database
+        public void DeleteEchelon(int EchelonID) //Needed parameter in the stored procedure from Manage Echelon form
         {
             myCon.Open();
 
@@ -271,8 +283,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Delete Equipment
-        public void DeleteEquipment(int EquipmentID)
+        //Delete Equipment from Database
+        public void DeleteEquipment(int EquipmentID) //Needed parameter in the stored procedure from Manage Equipment Form
         {
             myCon.Open();
 
@@ -285,8 +297,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Delete Organization
-        public void DeleteOrganization(int OrganizationID)
+        //Delete Organization from Database
+        public void DeleteOrganization(int OrganizationID) //Needed parameter in stored procedure from Manage Organization Forms
         {
             myCon.Open();
 
@@ -299,8 +311,8 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Delete Rank
-        public void DeleteRank(int RankID)
+        //Delete Rank from database
+        public void DeleteRank(int RankID) //Needed parameter in stored procedure from Manage Rank Forms
         {
             myCon.Open();
 
@@ -313,7 +325,7 @@ namespace DataHelper
             myCon.Close();
         }
 
-        //Display Echelon in Table
+        //Read all data from echelon table
         public DataSet DisplayEchelon()
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayEchelon", myCon);
@@ -323,6 +335,7 @@ namespace DataHelper
             return ds;
         }
 
+        //Read all data from status table
         public DataSet DisplayStatus()
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayStatus", myCon);
@@ -332,7 +345,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayEquipmentAccdgToYear(int YearID)
+        //Read all data from equipment table according to Year
+        public DataSet DisplayEquipmentAccdgToYear(int YearID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayEquipmentAccdgToYear", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -344,6 +358,7 @@ namespace DataHelper
             return ds;
         }
 
+        //Read all data from year table
         public DataSet DisplayYear()
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayYear", myCon);
@@ -353,7 +368,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayPositionAccdgToOrganization(int OrganizationID)
+        //Display all data from position table according to organization
+        public DataSet DisplayPositionAccdgToOrganization(int OrganizationID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayPositionAccdgToOrganization", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -365,7 +381,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayPerEquipmentAccdgToPositions(int PositionID)
+        //Display all data from personal equipment table according to position
+        public DataSet DisplayPerEquipmentAccdgToPositions(int PositionID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayPerEquipmentAccdgToPositions", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -377,7 +394,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayOrganizationTree(int Ancestor)
+        //Display Hierarchy according to parent_id
+        public DataSet DisplayOrganizationTree(int Ancestor) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("GetTree", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -389,7 +407,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayPosEquipmentAccdgToPositions(int PositionID)
+        //Display all data from position equipment according to positions
+        public DataSet DisplayPosEquipmentAccdgToPositions(int PositionID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayPosEquipmentAccdgToPositions", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -401,59 +420,8 @@ namespace DataHelper
             return ds;
         }
 
-        public bool GetTotalQtyForPerEquip(int PositionID, int EquipmentID)
-        {
-            recordFound = false;
-            myCon.Open();
-
-            MySqlCommand getTotalQty = new MySqlCommand("GetTotalQtyForPerEquip", myCon);
-            getTotalQty.CommandType = CommandType.StoredProcedure;
-
-            getTotalQty.Parameters.Add("PositionID", MySqlDbType.Int32).Value = PositionID;
-            getTotalQty.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = EquipmentID;
-
-            MySqlDataReader dr = getTotalQty.ExecuteReader();
-
-            while(dr.Read())
-            {
-                recordFound = true;
-
-                perEquipmentQty = Convert.ToInt32(dr["QtyOfPerEquip"]);
-
-                break;
-            }
-
-            myCon.Close();
-            return recordFound;
-        }
-
-        public bool GetTotalQtyForPosEquip(int PositionID, int EquipmentID)
-        {
-            recordFound = false;
-            myCon.Open();
-
-            MySqlCommand getTotalQty = new MySqlCommand("GetTotalQtyForPosEquip", myCon);
-            getTotalQty.CommandType = CommandType.StoredProcedure;
-
-            getTotalQty.Parameters.Add("PositionID", MySqlDbType.Int32).Value = PositionID;
-            getTotalQty.Parameters.Add("EquipmentID", MySqlDbType.Int32).Value = EquipmentID;
-
-            MySqlDataReader dr = getTotalQty.ExecuteReader();
-
-            while (dr.Read())
-            {
-                recordFound = true;
-
-                posEquipmentQty = Convert.ToInt32(dr["QtyOfPosEquip"]);
-
-                break;
-            }
-
-            myCon.Close();
-            return recordFound;
-        }
-
-        public bool DisplayStatusName(int StatusID)
+        //Get Status name from status table
+        public bool DisplayStatusName(int StatusID) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -478,7 +446,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool DisplayEquipmentForPosition(int EquipmentID)
+        //Display all data from equipment
+        public bool DisplayEquipmentForPosition(int EquipmentID) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -503,7 +472,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public DataSet DisplayOrganization(int StatusID)
+        //Display all data from organization according to status
+        public DataSet DisplayOrganization(int StatusID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayOrganization", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -515,7 +485,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayOrganizationAccdgToStatus(int StatusID)
+        //Display all data from organization according to status
+        public DataSet DisplayOrganizationAccdgToStatus(int StatusID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayOrganizationAccdgToStatus", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -527,7 +498,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayOrganizationWithEchelonName(int YearID, int StatusID)
+        //Display Organization with echelon name
+        public DataSet DisplayOrganizationWithEchelonName(int YearID, int StatusID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayOrganizationWithEchelonName", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -540,7 +512,8 @@ namespace DataHelper
             return ds;
         }
 
-        public DataSet DisplayRankAccdgToYear(int YearID)
+        //Display alll data from rank table according to year
+        public DataSet DisplayRankAccdgToYear(int YearID) //Needed parameter in stored procedure
         {
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayRankAccdgToYear", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -552,7 +525,8 @@ namespace DataHelper
             return ds;
         }
 
-        public bool LocateAccount(string UserName, string UserPassword)
+        //Read account for login
+        public bool LocateAccount(string UserName, string UserPassword) //Needed parameter in stored procedure
         {
             recordFound = false;
 
@@ -575,7 +549,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateEchelon(int EchelonID, string EchelonName, string EchelonCode)
+        //Update records from echeon table
+        public bool UpdateEchelon(int EchelonID, string EchelonName, string EchelonCode) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -603,7 +578,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateEquipment(int EquipmentID, string EquipmentName, decimal EquipmentCost)
+        //Update records from equipment table
+        public bool UpdateEquipment(int EquipmentID, string EquipmentName, decimal EquipmentCost) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -631,7 +607,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateOrganization(int OrganizationID, string OrganizationName, int OrganizationEchelon, string OrganizationCode)
+        //Update records from organization table
+        public bool UpdateOrganization(int OrganizationID, string OrganizationName, int OrganizationEchelon, string OrganizationCode) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -660,7 +637,8 @@ namespace DataHelper
             return recordFound;
         }
 
-        public bool UpdateRank(int RankID, string RankName, decimal RankSalary, string RankCode)
+        //update records from rank table
+        public bool UpdateRank(int RankID, string RankName, decimal RankSalary, string RankCode) //Needed parameter in stored procedure
         {
             recordFound = false;
             myCon.Open();
@@ -689,19 +667,21 @@ namespace DataHelper
             return recordFound;
         }
 
+        //Returns Total Organization Salary Cost
         public decimal TotalOrgSalaryCost()
         {
             myCon.Open();
 
             decimal totalOrgSalaryCost = 0;
 
+            //Gets position_id and rank_id according to organization
             MySqlDataAdapter da = new MySqlDataAdapter("DisplayPositionAccdgToOrganization", myCon);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.Add("OrganizationID", MySqlDbType.Int32).Value = organizationID;
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            foreach(DataRow dataRow in dt.Rows)
+            foreach(DataRow dataRow in dt.Rows)  //loops the data from the datatable dt
             {
                 int posID = Convert.ToInt32(dataRow["position_id"].ToString());
                 int rankID = Convert.ToInt32(dataRow["rank_id"].ToString());
@@ -715,7 +695,7 @@ namespace DataHelper
                 {
                     while(dr.Read())
                     {
-                        totalOrgSalaryCost += Convert.ToDecimal(dr["TotalCostOfRank"]);
+                        totalOrgSalaryCost += Convert.ToDecimal(dr["TotalCostOfRank"]); // Adds all the listed salary according to organization
                         break;
                     }
                 }
@@ -724,6 +704,7 @@ namespace DataHelper
             return totalOrgSalaryCost;
         }
 
+        //Returns Total Personal Equipment Cost
         public decimal TotalPersonalCost()
         {
             myCon.Open();
@@ -736,7 +717,7 @@ namespace DataHelper
             DataTable dt = new DataTable();
             dispPos.Fill(dt);
 
-            foreach(DataRow dataRow in dt.Rows)
+            foreach(DataRow dataRow in dt.Rows) //Loops the data from the datatable dt
             {
                 int posID = Convert.ToInt32(dataRow["position_id"].ToString());
 
@@ -746,7 +727,7 @@ namespace DataHelper
                 DataTable dtPer = new DataTable();
                 dispPer.Fill(dtPer);
 
-                foreach (DataRow perRow in dtPer.Rows)
+                foreach (DataRow perRow in dtPer.Rows) //Loops the data from the datatable dtPer
                 {
                     
                     int equipID = Convert.ToInt32(perRow["equipment_id"].ToString()); 
@@ -760,7 +741,7 @@ namespace DataHelper
                     {
                         while (dr.Read())
                         {
-                            totalPersonalCost += Convert.ToDecimal(dr["CostOfPerEquip"]);
+                            totalPersonalCost += Convert.ToDecimal(dr["CostOfPerEquip"]); //Adds all the listed Personal Equipment Cost
 
                             break;
                         }
@@ -771,6 +752,7 @@ namespace DataHelper
             return totalPersonalCost;
         }
 
+        //Returns Total Position Equipment Cost
         public decimal TotalPositionCost()
         {
             myCon.Open();
@@ -783,7 +765,7 @@ namespace DataHelper
             DataTable dt = new DataTable();
             dispPos.Fill(dt);
 
-            foreach (DataRow dataRow in dt.Rows)
+            foreach (DataRow dataRow in dt.Rows) //Loops the data from datatable dt
             {
                 int posID = Convert.ToInt32(dataRow["position_id"].ToString());
 
@@ -793,7 +775,7 @@ namespace DataHelper
                 DataTable dtPer = new DataTable();
                 dispPer.Fill(dtPer);
 
-                foreach (DataRow perRow in dtPer.Rows)
+                foreach (DataRow perRow in dtPer.Rows) //Loops the data from datatable dtPer
                 {
 
                     int equipID = Convert.ToInt32(perRow["equipment_id"].ToString());
@@ -807,7 +789,7 @@ namespace DataHelper
                     {
                         while (dr.Read())
                         {
-                            totalPositionCost += Convert.ToDecimal(dr["CostOfPosEquip"]);
+                            totalPositionCost += Convert.ToDecimal(dr["CostOfPosEquip"]);  //Adds all the listed Position Equipment Cost
 
                             break;
                         }
@@ -818,6 +800,7 @@ namespace DataHelper
             return totalPositionCost;
         }
 
+        //Returns all Personal Equipment Hierarchy Cost
         public decimal TotalTreePerCost()
         {
             myCon.Open();
@@ -830,7 +813,7 @@ namespace DataHelper
             DataTable dt = new DataTable();
             disTreePos.Fill(dt);
 
-            foreach (DataRow dataRow in dt.Rows)
+            foreach (DataRow dataRow in dt.Rows) //Loops the data from datatable dt
             {
                 int orgID = Convert.ToInt32(dataRow["organization_id"].ToString());
 
@@ -840,7 +823,7 @@ namespace DataHelper
                 DataTable dtOrg = new DataTable();
                 dispPos.Fill(dtOrg);
 
-                foreach (DataRow dataRowPer in dtOrg.Rows)
+                foreach (DataRow dataRowPer in dtOrg.Rows) //Loops the data from datatable dtOrg
                 {
                     int posID = Convert.ToInt32(dataRowPer["position_id"].ToString());
 
@@ -850,7 +833,7 @@ namespace DataHelper
                     DataTable dtPer = new DataTable();
                     dispPer.Fill(dtPer);
 
-                    foreach (DataRow perRow in dtPer.Rows)
+                    foreach (DataRow perRow in dtPer.Rows) //Loops the data from datatable dtPer
                     {
 
                         int equipID = Convert.ToInt32(perRow["equipment_id"].ToString());
@@ -864,7 +847,7 @@ namespace DataHelper
                         {
                             while (dr.Read())
                             {
-                                totalTreePerCost += Convert.ToDecimal(dr["CostOfPerEquip"]);
+                                totalTreePerCost += Convert.ToDecimal(dr["CostOfPerEquip"]); //Adds all the listed Personal Equipment Cost from hierarchy
 
                                 break;
                             }
@@ -876,6 +859,7 @@ namespace DataHelper
             return totalTreePerCost;
         }
 
+        //Returns all Position Equipment Hierarchy Cost
         public decimal TotalTreePosCost()
         {
             myCon.Open();
@@ -888,7 +872,7 @@ namespace DataHelper
             DataTable dt = new DataTable();
             disTreePos.Fill(dt);
 
-            foreach(DataRow dataRow in dt.Rows)
+            foreach(DataRow dataRow in dt.Rows) //Loops the data from datatable dataRow
             {
                 int orgID = Convert.ToInt32(dataRow["organization_id"].ToString());
 
@@ -898,7 +882,7 @@ namespace DataHelper
                 DataTable dtOrg = new DataTable();
                 dispPos.Fill(dtOrg);
 
-                foreach (DataRow dataRowPos in dtOrg.Rows)
+                foreach (DataRow dataRowPos in dtOrg.Rows) //Loops the data from datatable dtOrg
                 {
                     int posID = Convert.ToInt32(dataRowPos["position_id"].ToString());
 
@@ -908,7 +892,7 @@ namespace DataHelper
                     DataTable dtPer = new DataTable();
                     dispPer.Fill(dtPer);
 
-                    foreach (DataRow perRow in dtPer.Rows)
+                    foreach (DataRow perRow in dtPer.Rows) //Loops the data from datatable dtPer
                     {
 
                         int equipID = Convert.ToInt32(perRow["equipment_id"].ToString());
@@ -922,7 +906,7 @@ namespace DataHelper
                         {
                             while (dr.Read())
                             {
-                                totalTreePosCost += Convert.ToDecimal(dr["CostOfPosEquip"]);
+                                totalTreePosCost += Convert.ToDecimal(dr["CostOfPosEquip"]); //Adds all the listed Position Equipment Cost from hierarchy
 
                                 break;
                             }
@@ -934,6 +918,7 @@ namespace DataHelper
             return totalTreePosCost;
         }
 
+        //Returns all Salary Hierarchy Cost
         public decimal TotalTreeSalaryCost()
         {
             myCon.Open();
@@ -946,7 +931,7 @@ namespace DataHelper
             DataTable dt = new DataTable();
             disTreePos.Fill(dt);
 
-            foreach(DataRow dataRow in dt.Rows)
+            foreach(DataRow dataRow in dt.Rows) //Loops the data from datatable dataRow
             {
                 int orgID = Convert.ToInt32(dataRow["organization_id"].ToString());
 
@@ -956,7 +941,7 @@ namespace DataHelper
                 DataTable dtOrg = new DataTable();
                 da.Fill(dtOrg);
 
-                foreach (DataRow perRow in dtOrg.Rows)
+                foreach (DataRow perRow in dtOrg.Rows) //Loops the data from datatable perRow
                 {
                     int posID = Convert.ToInt32(perRow["position_id"].ToString());
                     int rankID = Convert.ToInt32(perRow["rank_id"].ToString());
@@ -970,7 +955,7 @@ namespace DataHelper
                     {
                         while (dr.Read())
                         {
-                            totalTreeSalaryCost += Convert.ToDecimal(dr["TotalCostOfRank"]);
+                            totalTreeSalaryCost += Convert.ToDecimal(dr["TotalCostOfRank"]); //Adds all the listed Salary Cost from hierarchy
                             break;
                         }
                     }
@@ -980,42 +965,49 @@ namespace DataHelper
             return totalTreeSalaryCost;
         }
 
+        //Returns Total equipment Cost per Organization
         public decimal TotalOrgEquipmentCost()
         {
             decimal totalOrgEquipmentCost = TotalPositionCost() + TotalPersonalCost();
             return totalOrgEquipmentCost;
         }
 
+        //Returns Total Organization Cost per Organization
         public decimal TotalCurrentOrgCost()
         {
             decimal totalCurrentOrgCost = TotalOrgEquipmentCost() + TotalOrgSalaryCost();
             return totalCurrentOrgCost;
         }
 
+        //Returns Total Position Equipment Cost per hierarchy
         public decimal TotalPositionEquipmentCost()
         {
             decimal totalPositionEquipmentCost = TotalTreePosCost() + TotalPositionCost();
             return totalPositionEquipmentCost;
         }
 
+        //Returns Total Personal Equipment Cost per hierarchy
         public decimal TotalPersonalEquipmentCost()
         {
             decimal totalPersonalEquipmentCost = TotalTreePerCost() + TotalPersonalCost();
             return totalPersonalEquipmentCost;
         }
 
+        //Returns Total Equipment Cost per hierarchy
         public decimal TotalEquipmentCost()
         {
             decimal totalEquipmentCost = TotalPositionEquipmentCost() + TotalPersonalEquipmentCost();
             return totalEquipmentCost;
         }
 
+        //Returns Total Salary Cost per hierarchy
         public decimal TotalSalaryCost()
         {
             decimal totalSalaryCost = TotalTreeSalaryCost() + TotalOrgSalaryCost();
             return totalSalaryCost;
         }
 
+        //Returns Total Cost of whole hierarchy
         public decimal TotalOrgCost()
         {
             decimal totalOrgCost = TotalEquipmentCost() + TotalSalaryCost();

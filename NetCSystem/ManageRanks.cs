@@ -32,12 +32,13 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myRankTable.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"];
+            myRankTable.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"]; //Parameters to pass to DataAccess class
             tblRank.DataSource = myRankTable;
         }
 
         private void txtRankSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Disables key on keyboard except numbers, Back key and '.' key
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -84,7 +85,7 @@ namespace NetCSystem
                 int RankID = Convert.ToInt32(txtRankID.Text);
                 decimal RankSalary = Convert.ToDecimal(txtRankSalary.Text);
 
-                if (!myData.UpdateRank(RankID, txtRankName.Text, RankSalary, txtRankCode.Text))
+                if (!myData.UpdateRank(RankID, txtRankName.Text, RankSalary, txtRankCode.Text)) //Parameters to pass to DataAccess class
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
@@ -112,7 +113,7 @@ namespace NetCSystem
             else
             {
                 int RankID = Convert.ToInt32(txtRankID.Text);
-                myData.DeleteRank(RankID);
+                myData.DeleteRank(RankID); //Parameters to pass to DataAccess class
                 MessageBox.Show("Deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
             }

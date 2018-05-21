@@ -35,6 +35,7 @@ namespace NetCSystem
             this.Close();
         }
 
+        //Disable any keys from keyboard except numbers, Back key and '.' key
         private void txtNewRankSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!char.IsDigit(e.KeyChar) && e.KeyChar != (char) Keys.Back && e.KeyChar != '.')
@@ -56,7 +57,7 @@ namespace NetCSystem
                 int StatusID = Convert.ToInt32(lblStatusID.Text);
                 int YearID = Convert.ToInt32(lblYearID.Text);
 
-                myData.AddRank(txtNewRankName.Text, RankSalary, YearID, txtRankCode.Text);
+                myData.AddRank(txtNewRankName.Text, RankSalary, YearID, txtRankCode.Text); //Parameters to pass to DataAccess class
 
                 MessageBox.Show("Rank Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -24,7 +24,7 @@ namespace NetCSystem
 
         void DisplayYear()
         {
-            myYear.DataSource = myData.DisplayYear().Tables["YearRecord"];
+            myYear.DataSource = myData.DisplayYear().Tables["YearRecord"]; //Parameters to pass to DataAccess class
             cboYear.DataSource = myYear;
             cboYear.DisplayMember = "year_start";
             cboYear.ValueMember = "year_id";

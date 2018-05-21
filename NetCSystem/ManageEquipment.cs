@@ -32,7 +32,7 @@ namespace NetCSystem
         {
             int YearID = Convert.ToInt32(lblYearID.Text);
 
-            myEquipmentTable.DataSource = myData.DisplayEquipmentAccdgToYear(YearID).Tables["EquipmentRecord"];
+            myEquipmentTable.DataSource = myData.DisplayEquipmentAccdgToYear(YearID).Tables["EquipmentRecord"]; //Parameters to pass to DataAccess class
             tblEquipment.DataSource = myEquipmentTable;
         }
 
@@ -46,6 +46,7 @@ namespace NetCSystem
 
         private void txtEquipmentCost_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Disables any key on the keyboard except numbers, Back key and '.'
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -91,7 +92,7 @@ namespace NetCSystem
                 int EquipmentID = Convert.ToInt32(txtEquipmentID.Text);
                 decimal EquipmentCost = Convert.ToDecimal(txtEquipmentCost.Text);
 
-                if (!myData.UpdateEquipment(EquipmentID, txtEquipmentName.Text, EquipmentCost))
+                if (!myData.UpdateEquipment(EquipmentID, txtEquipmentName.Text, EquipmentCost)) //Parameters to pass to DataAccess class
                 {
                     MessageBox.Show("Updated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
@@ -109,7 +110,7 @@ namespace NetCSystem
             else
             {
                 int EquipmentID = Convert.ToInt32(txtEquipmentID.Text);
-                myData.DeleteEquipment(EquipmentID);
+                myData.DeleteEquipment(EquipmentID); //Parameters to pass to DataAccess class
                 MessageBox.Show("Deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reset();
             }

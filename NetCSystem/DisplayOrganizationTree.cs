@@ -32,7 +32,7 @@ namespace NetCSystem
         {
             int statusID = Convert.ToInt32(lblStatusID.Text);
             int yearID = Convert.ToInt32(lblYearID.Text);
-            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"];
+            myOrganizationTable.DataSource = myData.DisplayOrganizationWithEchelonName(yearID, statusID).Tables["OrganizationRecord"]; //Parameters to pass to DataAccess class
             tblParentOrg.DataSource = myOrganizationTable;
         }
 
@@ -42,16 +42,17 @@ namespace NetCSystem
 
             DataView OrgView = new DataView();
 
-            OrgView.Table = myData.DisplayOrganizationTree(OrganizationID).Tables["Organizationrecord"];
-            myData.OrganizationID(OrganizationID);
+            OrgView.Table = myData.DisplayOrganizationTree(OrganizationID).Tables["Organizationrecord"]; //Parameters to pass to DataAccess class
             myData.OrganizationID(OrganizationID);
             tblChildOrg.DataSource = OrgView;
 
+            //Removed unnecessary columns
             tblChildOrg.Columns.Remove("echelon_id");
             tblChildOrg.Columns.Remove("status_id");
             tblChildOrg.Columns.Remove("year_id");
             tblChildOrg.Columns.Remove("parent_id");
 
+            //Result
             txtResult.Text = "Organization Name: " + txtOrgName.Text +
                              "\nTotal Position Equipment Cost: " + myData.TotalPositionEquipmentCost() +
                              "\nTotal Personal Equipment Cost: " + myData.TotalPersonalEquipmentCost() +

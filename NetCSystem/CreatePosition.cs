@@ -41,7 +41,7 @@ namespace NetCSystem
         {
             int statusID = Convert.ToInt32(lblStatusID.Text);
 
-            myOrganizationName.DataSource = myData.DisplayOrganization(statusID).Tables["OrganizationRecord"];
+            myOrganizationName.DataSource = myData.DisplayOrganization(statusID).Tables["OrganizationRecord"];  //Parameters to pass to DataAccess class
             cboOrganization.DataSource = myOrganizationName;
             cboOrganization.DisplayMember = "organization_name";
             cboOrganization.ValueMember = "organization_id";
@@ -50,7 +50,7 @@ namespace NetCSystem
         void DisplayRankName()
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
-            myRankName.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"];
+            myRankName.DataSource = myData.DisplayRankAccdgToYear(yearID).Tables["RankRecord"]; //Parameters to pass to DataAccess class
             cboRankRequired.DataSource = myRankName;
             cboRankRequired.DisplayMember = "rank_name";
             cboRankRequired.ValueMember = "rank_id";
@@ -60,7 +60,7 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myPerEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"];
+            myPerEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"]; //Parameters to pass to DataAccess class
             cboPersonnelEquipment.DataSource = myPerEquipmentName;
             cboPersonnelEquipment.DisplayMember = "equipment_name";
             cboPersonnelEquipment.ValueMember = "equipment_id";
@@ -70,7 +70,7 @@ namespace NetCSystem
         {
             int yearID = Convert.ToInt32(lblYearID.Text);
 
-            myPosEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"];
+            myPosEquipmentName.DataSource = myData.DisplayEquipmentAccdgToYear(yearID).Tables["EquipmentRecord"]; //Parameters to pass to DataAccess class
             cboPositionEquipment.DataSource = myPosEquipmentName;
             cboPositionEquipment.DisplayMember = "equipment_name";
             cboPositionEquipment.ValueMember = "equipment_id";
@@ -84,6 +84,7 @@ namespace NetCSystem
             this.Close();
         }
 
+        //Disables any keys in the keyboard except numbers and Back key
         private void txtNumOfPer_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -92,6 +93,7 @@ namespace NetCSystem
             }
         }
 
+        //Disables any keys in the keyboard except numbers and Back key
         private void txtPerEquipQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -100,6 +102,7 @@ namespace NetCSystem
             }
         }
 
+        //Disables any keys in the keyboard except numbers and Back keys
         private void txtPosEquipQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -113,7 +116,7 @@ namespace NetCSystem
             txtPerEquipCost.Text = "";
             int EquipmentID = (int) cboPersonnelEquipment.SelectedValue;
 
-            if (myData.DisplayEquipmentForPosition(EquipmentID))
+            if (myData.DisplayEquipmentForPosition(EquipmentID)) //Parameters to pass to DataAccess class
             {
                 txtPerEquipCost.Text = Convert.ToString(myData.EquipmentCost);
             }
@@ -124,12 +127,13 @@ namespace NetCSystem
             txtPosEquipCost.Text = "";
             int EquipmentID = (int)cboPositionEquipment.SelectedValue;
 
-            if(myData.DisplayEquipmentForPosition(EquipmentID))
+            if(myData.DisplayEquipmentForPosition(EquipmentID)) //Parameters to pass to DataAccess class
             {
                 txtPosEquipCost.Text = Convert.ToString(myData.EquipmentCost);
             }
         }
 
+        //Adds data from Combo box to Datagidview
         private void btnAddPerEquip_Click(object sender, EventArgs e)
         {
             if(txtPerEquipCost.Text == "" || txtPerEquipQty.Text == "")
@@ -151,6 +155,7 @@ namespace NetCSystem
             }
         }
 
+        //Deletes data from datagridview
         private void btnDeletePerEquip_Click(object sender, EventArgs e)
         {
             foreach(DataGridViewCell oneCell in tblPersonnelEquipment.SelectedCells)
@@ -160,6 +165,7 @@ namespace NetCSystem
             }
         }
 
+        //Adds data from Combo box to Datagridview
         private void btnAddPosEquip_Click(object sender, EventArgs e)
         {
             if (txtPosEquipCost.Text == "" || txtPosEquipQty.Text == "")
@@ -181,6 +187,7 @@ namespace NetCSystem
             }
         }
 
+        //Deletes data from Datagridview
         private void btnDeletePosEquip_Click(object sender, EventArgs e)
         {
             foreach(DataGridViewCell oneCell in tblPositionEquipment.SelectedCells)
@@ -190,6 +197,7 @@ namespace NetCSystem
             }
         }
 
+        
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if(txtPositionName.Text == "" || txtNumOfPer.Text == "" || tblPersonnelEquipment.Rows.Count == 0 || tblPositionEquipment.Rows.Count == 0)
@@ -202,7 +210,12 @@ namespace NetCSystem
                 int RankRequired = (int) cboRankRequired.SelectedValue;
                 int Organization = (int)cboOrganization.SelectedValue;
 
-                myData.AddPosition(txtPositionName.Text, NumberOfPersonnel, RankRequired, Organization);
+                myData.AddPosition(txtPositionName.Text, NumberOfPersonnel, RankRequired, Organization); //Parameters to pass to DataAccess class
+
+
+                /* 
+                 * Adds the data from Datagridview to Database
+                 */
 
                 for (int i = 0; i < tblPersonnelEquipment.Rows.Count; i++)
                 {

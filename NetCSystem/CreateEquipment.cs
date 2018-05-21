@@ -54,7 +54,7 @@ namespace NetCSystem
                 int YearID = Convert.ToInt32(lblYearID.Text);
                 int statusID = Convert.ToInt32(lblStatusID.Text);
 
-                myData.AddEquipment(txtNewEquipmentName.Text, EquipmentCost,YearID);
+                myData.AddEquipment(txtNewEquipmentName.Text, EquipmentCost,YearID); //Parameters to pass to DataAccess class
 
                 MessageBox.Show("Equipment Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -57,7 +57,7 @@ namespace NetCSystem
                 int StatusID = Convert.ToInt32(lblStatusID.Text);
                 int YearID = Convert.ToInt32(lblYearID.Text);
 
-                myData.AddOrganization(txtNewOrgName.Text, OrganizationEchelon, StatusID, YearID, txtOrganizationCode.Text);
+                myData.AddOrganization(txtNewOrgName.Text, OrganizationEchelon, StatusID, YearID, txtOrganizationCode.Text); //Parameters to pass to DataAccess class
 
                 MessageBox.Show("Organization Added!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

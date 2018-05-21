@@ -293,7 +293,7 @@
             this.Controls.Add(this.label2);
             this.Name = "ManageEquipment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ManageEquipment";
+            this.Text = "  ";
             ((System.ComponentModel.ISupportInitialize)(this.tblEquipment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
